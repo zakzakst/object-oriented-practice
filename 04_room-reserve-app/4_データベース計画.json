@@ -1,0 +1,41 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "room-reserve-app": {
+    "user": {
+      "ユーザーID-01": {
+        "type": "admin / normal"
+      }
+    },
+    "space": {
+      "スペースID-01": {
+        "name": "",
+        "area": 100,
+        "floor": "",
+        "usageStatus": false
+      }
+    },
+    "facility": {
+      "設備ID-01": {
+        "name": "",
+        "spaceId": "スペースID-01"
+      }
+    },
+    "reservation": {
+      "予約ID-01": {
+        "name": "",
+        "date": "YYYY/MM/DD",
+        "startTime": "HH:MM",
+        "endTime": "HH:MM",
+        "spaceId": "スペースID-01"
+      }
+    }
+  }
+}
