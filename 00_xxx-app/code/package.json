@@ -1,5 +1,5 @@
 {
-  "name": "01_memo-app",
+  "name": "00_xxx-app",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,20 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
+    "bulma": "^0.9.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.5"
+    "nuxt": "^2.14.5",
+    "nuxt-fontawesome": "^0.4.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "firebase": "^7.21.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2"
+  }
 }
