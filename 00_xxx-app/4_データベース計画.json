@@ -1,0 +1,23 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "xxx-app": {
+    "object": {
+      "ユーザーID-01": {
+        "property": ""
+      }
+    }
+  },
+  "storage": {
+    "object": {
+      "image": "ストレージ内容（※実際はプロパティではない）"
+    }
+  }
+}
