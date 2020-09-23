@@ -1,0 +1,31 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "family-park-app": {
+    "park": {
+      "公園ID-01": {
+        "name": "",
+        "address": ""
+      }
+    },
+    "equipment": {
+      "設置遊具ID-01": {
+        "equipmentKindId": "遊具の種類ID-01",
+        "parkId": "公園ID-01"
+      }
+    },
+    "equipmentKind": {
+      "遊具の種類ID-01": {
+        "name": "",
+        "feature": "スペースID-01"
+      }
+    }
+  }
+}
