@@ -1,0 +1,27 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "member-list-app": {
+    "team": {
+      "チームID-01": {
+        "name": "",
+        "introduction": ""
+      }
+    },
+    "member": {
+      "ユーザーID-01": {
+        "name": "",
+        "contact": "",
+        "onlineStatus": false,
+        "teamId": "チームID-01"
+      }
+    }
+  }
+}
