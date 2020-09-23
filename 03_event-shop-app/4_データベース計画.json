@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "event-shop-app": {
+    "venue": {
+      "会場ID-01": {
+        "name": ""
+      }
+    },
+    "location": {
+      "場所ID-01": {
+        "name": "",
+        "venueId": "会場ID-01"
+      }
+    },
+    "shop": {
+      "店舗ID-01": {
+        "name": "",
+        "tell": "",
+        "menu": "",
+        "introduction": "",
+        "locationId": "場所ID-01"
+      }
+    }
+  },
+  "storage": {
+    "venue": {
+      "会場ID-01": {
+        "image": "ストレージ内容（※実際はプロパティではない）"
+      }
+    },
+    "shop": {
+      "店舗ID-01": {
+        "image": "ストレージ内容（※実際はプロパティではない）"
+      }
+    }
+  }
+}
