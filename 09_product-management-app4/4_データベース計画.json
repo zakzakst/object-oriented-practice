@@ -1,0 +1,67 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "ユーザーID-01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "product-management-app": {
+    "purchase": {
+      "仕入れID-01": {
+        "date": "YYYY/MM/DD"
+      }
+    },
+    "purchaseDetail": {
+      "仕入れの明細ID-01": {
+        "purchaseId": "仕入れID-01",
+        "productId": "商品の種類ID-01",
+        "price": 1000,
+        "quantity": 10
+      }
+    },
+    "product": {
+      "商品の種類ID-01": {
+        "name": "",
+        "categoryId": "商品のカテゴリーID-01"
+      }
+    },
+    "category": {
+      "商品のカテゴリーID-01": {
+        "name": ""
+      }
+    },
+    "inventory": {
+      "棚卸しID-01": {
+        "date": "YYYY/MM/DD"
+      }
+    },
+    "inventoryDetail": {
+      "棚卸しの明細ID-01": {
+        "inventoryId": "棚卸しID-01",
+        "productId": "商品の種類ID-01",
+        "stock": 10
+      }
+    },
+    "report": {
+      "レポートID-01": {
+        "date": "YYYY/MM/DD"
+      }
+    },
+    "browsingLog": {
+      "閲覧ログID-01": {
+        "userId": "ユーザーID-01",
+        "productId": "商品の種類ID-01",
+        "date": "YYYY/MM/DD"
+      }
+    },
+    "favorite": {
+      "お気に入りID-01": {
+        "userId": "ユーザーID-01",
+        "productId": "商品の種類ID-01"
+      }
+    }
+  }
+}
