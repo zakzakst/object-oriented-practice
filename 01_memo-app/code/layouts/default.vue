@@ -25,15 +25,11 @@
 
 <script>
 import MemoListItem from '~/components/MemoListItem';
-import memoMixin from '~/mixins/memoMixin';
 
 export default {
   components: {
     MemoListItem,
   },
-  mixins: [
-    memoMixin
-  ],
   mounted() {
     this.$store.dispatch('memo/loadMemoList', 'user01');
   },
