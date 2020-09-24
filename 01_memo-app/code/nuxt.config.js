@@ -53,7 +53,7 @@ export default {
 
   styleResources: {
     scss: [
-      '@/assets/sass/variable.scss'
+      '@/assets/sass/_variables.scss'
     ]
   },
 
@@ -63,6 +63,10 @@ export default {
       {
         set: '@fortawesome/free-solid-svg-icons',
         icons: ['fas']
+      },
+      {
+        set: '@fortawesome/free-regular-svg-icons',
+        icons: ['far']
       },
     ]
   },
