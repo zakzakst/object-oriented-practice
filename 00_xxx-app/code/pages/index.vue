@@ -10,6 +10,8 @@ export default {}
 </script>
 
 <style lang="scss">
+// # TODO: TODOコメントサンプル
+// # NOTE: NOTEコメントサンプル
 .test {
   span {
     color: red;
