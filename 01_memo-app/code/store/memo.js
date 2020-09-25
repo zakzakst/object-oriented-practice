@@ -19,6 +19,8 @@ export const mutations = {
     // 配列内の位置を取得して、削除
     const targetIndex = list.indexOf(target);
     list.splice(targetIndex, 1);
+    // トップページに遷移
+    this.$router.push('/');
   },
   updateMemo(state, payload) {
     const list = state.memoList;
@@ -29,13 +31,17 @@ export const mutations = {
     // 内容を変更
     target.title = payload.title;
     target.text = payload.text;
+    // itemページに遷移
+    this.$router.push(`/item/${payload.id}`);
   }
 }
 
 export const actions = {
   createMemo({commit}, payload) {
-    payload.id = Date.now();
+    payload.id = Date.now() + '';
     commit('setMemo', payload);
+    // itemページに遷移
+    this.$router.push(`/item/${payload.id}`);
   },
   async loadMemoList({commit, state}, payload) {
     // 読込が完了していた場合は処理を終了

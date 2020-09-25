@@ -4,14 +4,16 @@
     <div class="field">
       <label class="label">タイトル</label>
       <div class="control">
-        <input v-model="title" class="input" type="text" placeholder="タイトル">
+        <input v-model="title" :class="{'is-danger': titleValid}" class="input" type="text" placeholder="タイトル" @input="formInputCheck">
       </div>
+      <p v-if="titleValid" class="help is-danger">タイトルを入力してください</p>
     </div>
     <div class="field">
       <label class="label">内容</label>
       <div class="control">
-        <textarea v-model="text" class="textarea" placeholder="内容"></textarea>
+        <textarea v-model="text" :class="{'is-danger': textValid}" class="textarea" placeholder="内容" @input="formInputCheck"></textarea>
       </div>
+      <p v-if="textValid" class="help is-danger">内容を入力してください</p>
     </div>
     <div class="field is-grouped">
       <div class="control">
@@ -25,13 +27,20 @@
 </template>
 
 <script>
+import formMixin from '~/mixins/formMixin';
+
 export default {
   data() {
     return {
       title: '',
-      text: ''
+      text: '',
+      titleValid: false,
+      textValid: false
     }
   },
+  mixins: [
+    formMixin,
+  ],
   methods: {
     createMemo() {
       // バリデーションの返り値がfalseなら処理を終了
@@ -41,20 +50,7 @@ export default {
         'text': this.text
       };
       this.$store.dispatch('memo/createMemo', memoObj);
-      // TODO:ページ作成後にそのメモのページに遷移させる
     },
-    formValid() {
-      // TODO:バリデーションの実装
-      if (!this.title || !this.text) {
-        console.log('入力欄が空白');
-        return false;
-      }
-      return true;
-    },
-    formClear() {
-      this.title = '';
-      this.text = '';
-    }
   }
 }
 </script>

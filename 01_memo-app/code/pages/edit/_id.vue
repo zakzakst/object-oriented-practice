@@ -4,14 +4,16 @@
     <div class="field">
       <label class="label">タイトル</label>
       <div class="control">
-        <input v-model="title" class="input" type="text" placeholder="タイトル">
+        <input v-model="title" :class="{'is-danger': titleValid}" class="input" type="text" placeholder="タイトル" @input="formInputCheck">
       </div>
+      <p v-if="titleValid" class="help is-danger">タイトルを入力してください</p>
     </div>
     <div class="field">
       <label class="label">内容</label>
       <div class="control">
-        <textarea v-model="text" class="textarea" placeholder="内容"></textarea>
+        <textarea v-model="text" :class="{'is-danger': textValid}" class="textarea" placeholder="内容" @input="formInputCheck"></textarea>
       </div>
+      <p v-if="textValid" class="help is-danger">内容を入力してください</p>
     </div>
     <div class="field is-grouped">
       <div class="control">
@@ -28,19 +30,25 @@
 </template>
 
 <script>
+import formMixin from '~/mixins/formMixin';
+
 export default {
   data() {
     return {
       title: '',
-      text: ''
+      text: '',
+      titleValid: false,
+      textValid: false
     }
   },
+  mixins: [
+    formMixin,
+  ],
   methods: {
     setItemData() {
       this.id = this.$route.params.id;
       // 対応するメモデータを取得
       const itemData = this.$store.getters['memo/getMemoItem'](this.id);
-      // TODO:読込前の状態でデータを取りにいった場合の処理
       if(itemData) {
         this.title = itemData.title;
         this.text = itemData.text;
@@ -55,24 +63,10 @@ export default {
         'text': this.text
       };
       this.$store.dispatch('memo/updateMemo', memoObj);
-      // TODO:メモ更新後にそのメモのページに遷移させる
     },
-    formValid() {
-      // TODO:バリデーションの実装
-      if (!this.title || !this.text) {
-        console.log('入力欄が空白');
-        return false;
-      }
-      return true;
-    },
-    formClear() {
-      this.title = '';
-      this.text = '';
-    }
   },
   created() {
     this.setItemData();
-    // TODO:マークダウンへの対応
   },
 }
 </script>

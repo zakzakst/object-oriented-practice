@@ -25,7 +25,8 @@
       {
         "text": "TODO:",
         "color": "#FFF",
-        "backgroundColor": "#662200"
+        "backgroundColor": "#662200",
+        "overviewRulerColor": "transparent",
       },
       {
         "text": "FIXME",
@@ -34,8 +35,9 @@
       }
     ],
     "todohighlight.defaultStyle": {
+      "overviewRulerColor": "transparent",
       "isWholeLine": false
     },
-    "todo.colors.tag": "#666666"
+    "todo.colors.tag": "#666666",
   }
 }

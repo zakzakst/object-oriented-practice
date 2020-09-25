@@ -8,23 +8,20 @@
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ メモのマークダウン対応
   ☐ トップページに掲載する内容
+  ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
+  ☐ editページがitemページ以外からアクセスされた場合はitemページにリダイレクト
 
 コード内記載:
-  ☐ ページ作成後にそのメモのページに遷移させる
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/create.vue#44
-  ☐ バリデーションの実装
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/create.vue#47
-  ☐ 読込前の状態でデータを取りにいった場合の処理
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/edit/_id.vue#43
-  ☐ メモ更新後にそのメモのページに遷移させる
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/edit/_id.vue#58
-  ☐ バリデーションの実装
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/edit/_id.vue#61
-  ☐ マークダウンへの対応
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/edit/_id.vue#75
   ☐ 読込前の状態でデータを取りにいった場合の処理
   @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#33
-  ☐ 削除後のページ遷移のタイミング・挙動検討
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#41
   ☐ マークダウンへの対応
   @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#47
+
+Archive:
+  ✔ ページ作成後にそのメモのページに遷移させる @done(20-09-26 06:13) @project(コード内記載)
+  ✔ バリデーションの実装 @done(20-09-26 06:02) @project(コード内記載)
+  ✔ 読込前の状態でデータを取りにいった場合の処理 @done(20-09-26 06:02) @project(コード内記載)
+  ✔ メモ更新後にそのメモのページに遷移させる @done(20-09-26 06:13) @project(コード内記載)
+  ✔ バリデーションの実装 @done(20-09-26 06:02) @project(コード内記載)
+  ✔ マークダウンへの対応 @done(20-09-26 06:17) @project(コード内記載)
+  ✔ 削除後のページ遷移のタイミング・挙動検討 @done(20-09-26 06:15) @project(コード内記載)

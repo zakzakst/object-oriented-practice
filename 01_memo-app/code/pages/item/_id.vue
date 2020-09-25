@@ -38,8 +38,6 @@ export default {
     },
     deleteMemo() {
       this.$store.dispatch('memo/deleteMemo', this.id);
-      // TODO:削除後のページ遷移のタイミング・挙動検討
-      this.$router.push('/');
     }
   },
   created() {
