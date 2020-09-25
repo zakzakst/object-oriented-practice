@@ -1,10 +1,40 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"git.ignoreLimitWarning": true
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "todohighlight.keywords": [
+      {
+        "text": "DEBUG:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#dd5706"
+      },
+      {
+        "text": "NOTE:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#2741a0"
+      },
+      {
+        "text": "HACK:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#a0275d"
+      },
+      {
+        "text": "TODO:",
+        "color": "#FFF",
+        "backgroundColor": "#30730f"
+      },
+      {
+        "text": "FIXME",
+        "color": "#FFF",
+        "backgroundColor": "#e808ab"
+      }
+    ],
+    "todohighlight.defaultStyle": {
+      "isWholeLine": true
+    }
+  }
 }
