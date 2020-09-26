@@ -31,6 +31,7 @@ export const mutations = {
     // 内容を変更
     target.title = payload.title;
     target.text = payload.text;
+    target.dateUpdated = Date.now();
     // itemページに遷移
     this.$router.push(`/item/${payload.id}`);
   }
@@ -38,7 +39,11 @@ export const mutations = {
 
 export const actions = {
   createMemo({commit}, payload) {
-    payload.id = Date.now() + '';
+    const dateNum = Date.now();
+    // idは文字列に変換して登録（※あとでid参照を行う際のデータ型の関係上）
+    payload.id = dateNum + '';
+    payload.dateCreate = dateNum;
+    payload.dateUpdated = dateNum;
     commit('setMemo', payload);
     // itemページに遷移
     this.$router.push(`/item/${payload.id}`);
@@ -55,9 +60,11 @@ export const actions = {
     // keyをメモのIDに設定して、memoListに追加
     Object.keys(memoListData).forEach(memoId => {
       const memoObj = {
-        'id': memoId,
-        'title': memoListData[memoId].title,
-        'text': memoListData[memoId].text,
+        id: memoId,
+        title: memoListData[memoId].title,
+        text: memoListData[memoId].text,
+        dateCreate: memoListData[memoId].dateCreate,
+        dateUpdated: memoListData[memoId].dateUpdated,
       };
       commit('setMemo', memoObj);
       // 読込完了をtrueにする

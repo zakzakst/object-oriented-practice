@@ -1,24 +1,24 @@
 <template>
-  <div class="px-3 py-3">
-    <div class="columns">
-      <div class="memo-list column is-one-quarter has-background-light">
-        <div class="memo-list__btn has-background-light">
-          <nuxt-link to="/create" class="button is-text">
-            <span class="icon">
-              <fa :icon="['fas', 'plus']" class="fa-lg" />
-            </span>
-          </nuxt-link>
-        </div>
+  <div class="memo-wrapper">
+    <div class="memo-list has-background-light">
+      <div class="memo-list__btn has-background-light">
+        <nuxt-link to="/create" class="button is-text">
+          <span class="icon">
+            <fa :icon="['fas', 'plus']" class="fa-lg" />
+          </span>
+        </nuxt-link>
+      </div>
+      <transition-group name="memo-list-item">
         <memo-list-item v-for="memo in memoList"
           :key="memo.id"
           :id="memo.id"
           :title="memo.title"
-          :text="memo.text"
+          :dateUpdated="memo.dateUpdated"
         />
-      </div>
-      <div class="memo-content column is-three-quarters">
-        <Nuxt />
-      </div>
+      </transition-group>
+    </div>
+    <div class="memo-content">
+      <Nuxt />
     </div>
   </div>
 </template>
@@ -35,22 +35,33 @@ export default {
   },
   computed: {
     memoList() {
-      return this.$store.getters['memo/getMemoList'];
+      const list = this.$store.getters['memo/getMemoList'];
+      const listSorted = list.slice().sort(function(a, b) {
+        return b.dateUpdated - a.dateUpdated;
+      });
+      return listSorted;
     }
   }
 }
 </script>
 
 <style lang="scss">
+$memo-list-width: 25%;
 $memo-list-btn-height: 48px;
 
-.memo-list,
-.memo-content {
-  position: relative;
+.memo-wrapper {
+  padding-left: $memo-list-width;
+}
+.memo-list {
+  position: fixed;
+  width: $memo-list-width;
   height: 100vh;
-  padding-top: $memo-list-btn-height + 8px;
-  padding-bottom: 32px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: ($memo-list-btn-height + 8px) .75rem 32px;
   overflow-y: auto;
+  z-index: $z-memo-list;
 }
 .memo-list__btn {
   display: flex;
@@ -64,7 +75,19 @@ $memo-list-btn-height: 48px;
   align-items: center;
 }
 .memo-content {
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: ($memo-list-btn-height + 8px) 32px 32px;
+}
+
+// ページトランジション
+.page-enter-active, .page-leave-active {
+  transition: opacity $transition-default;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+// ナビゲーションのリストトランジション
+.memo-list-item-move {
+  transition: transform $transition-default;
 }
 </style>

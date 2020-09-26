@@ -8,7 +8,7 @@
     <div class="memo-list-item__content media-content">
       <div class="content">
         <p class="memo-list-item__title has-text-weight-bold mb-1">{{ title }}</p>
-        <p class="memo-list-item__text">{{ text }}</p>
+        <p class="memo-list-item__text">{{ dateUpdatedStr }}</p>
       </div>
     </div>
   </nuxt-link>
@@ -16,7 +16,13 @@
 
 <script>
 export default {
-  props: ['id', 'title', 'text']
+  props: ['id', 'title', 'dateUpdated'],
+  computed: {
+    dateUpdatedStr() {
+      const dateUpdatedObj = new Date(this.dateUpdated);
+      return `${dateUpdatedObj.toLocaleDateString()} ${dateUpdatedObj.toLocaleTimeString()}`;
+    }
+  }
 }
 </script>
 
