@@ -2,7 +2,6 @@
   ☐ firebaseへのデータ登録
   ☐ ログイン認証
   ☐ ログイン認証した後のユーザーごとのメモの出し分け
-  ☐ 各処理完了後のトースト表示
   ☐ editページがitemページ以外からアクセスされた場合はitemページにリダイレクト
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
@@ -12,6 +11,8 @@
   @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#33
 
 Archive:
+  ✔ メモ削除前に確認モーダルを表示 @done(20-09-27 03:49) @project(残り作業)
+  ✔ 各処理完了後のトースト表示 @done(20-09-27 03:50) @project(残り作業)
   ✔ ログインページ @done(20-09-26 23:51) @project(残り作業)
   ✔ ログアウトボタン @done(20-09-26 22:50) @project(残り作業)
   ✔ SP時の表示 @done(20-09-26 22:26) @project(残り作業)
@@ -44,3 +45,8 @@ Memo:
   https://www.tam-tam.co.jp/tipsnote/html_css/post10708.html
   https://qiita.com/one-a/items/2758511326c09200fded
   https://maku77.github.io/sass/string.html
+
+  ■■■ 反省など ■■■
+  ・各種ボタンの配置を計画していなかったので、各ページでバラバラになってしまった。次は整理して、まとまりをコンポーネント化したい
+
+  ・storeのmutations内でsettimeoutを使ってstateを変更しようとしたら上手くいかなかった。actionsのほうで処理したら上手くいった
