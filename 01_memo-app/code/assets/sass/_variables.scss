@@ -8,3 +8,18 @@ $transition-default: .3s;
 
 // ZINDEX
 $z-memo-list: 10;
+
+// BREAKPOINT
+$breakpoint-mobile: 768px;
+$breakpoint-mobile-mf: $breakpoint-mobile + 1px;
+
+$breakpoints: (
+  'mb': 'screen and (min-width: #{$breakpoint-mobile})',
+  'mb-mf': 'screen and (min-width: #{$breakpoint-mobile-mf})'
+) !default;
+
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

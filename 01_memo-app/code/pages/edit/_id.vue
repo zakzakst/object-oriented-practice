@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div class="memo-content-btn buttons">
+      <nuxt-link :to="`/item/${$route.params.id}`" class="button is-light">
+        <span class="icon">
+          <fa :icon="['fas', 'chevron-left']" class="fa-lg" />
+        </span>
+      </nuxt-link>
+    </div>
     <h1 class="title">メモを更新する</h1>
     <div class="field">
       <label class="label">タイトル</label>
@@ -20,10 +27,10 @@
         <button class="button is-link" @click.prevent="updateMemo">メモを更新</button>
       </div>
       <div class="control">
-        <button class="button is-link is-light" @click.prevent="formClear">クリア</button>
+        <button class="button is-light" @click.prevent="formClear">クリア</button>
       </div>
       <div class="control">
-        <nuxt-link :to="`/item/${$route.params.id}`" class="button is-link is-light">メモに戻る</nuxt-link>
+        <nuxt-link :to="`/item/${$route.params.id}`" class="button is-light">メモに戻る</nuxt-link>
       </div>
     </div>
   </div>

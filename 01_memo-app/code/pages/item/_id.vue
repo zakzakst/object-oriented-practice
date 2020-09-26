@@ -1,5 +1,17 @@
 <template>
   <div>
+    <div class="memo-content-btn buttons is-hidden-tablet">
+      <nuxt-link to="/" class="button is-light">
+        <span class="icon">
+          <fa :icon="['fas', 'chevron-left']" class="fa-lg" />
+        </span>
+      </nuxt-link>
+      <button class="button is-light" @click.prevent="signOut">
+        <span class="icon">
+          <fa :icon="['fas', 'sign-out-alt']" />
+        </span>
+      </button>
+    </div>
     <h1 class="title">{{ title }}</h1>
     <div class="memo-item-date mb-4">
       <div class="tags has-addons">
@@ -38,6 +50,9 @@ export default {
     }
   },
   methods: {
+    signOut() {
+      this.$router.push('/sign-in');
+    },
     setItemData() {
       this.id = this.$route.params.id;
       // 対応するメモデータを取得
