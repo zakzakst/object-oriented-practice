@@ -84,6 +84,13 @@ export const getters = {
     console.log('メモデータ取得');
     return state.memoList;
   },
+  getMemoListSorted(state) {
+    const list = state.memoList;
+    const listSorted = list.slice().sort(function(a, b) {
+      return b.dateUpdated - a.dateUpdated;
+    });
+    return listSorted;
+  },
   getMemoItem: (state) => (id) => {
     const memoItem = state.memoList.find(memo => {
       return memo.id === id;

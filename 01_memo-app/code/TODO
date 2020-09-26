@@ -1,11 +1,8 @@
 残り作業:
-  ☐ SP時の表示 @today
-  ☐ ログインページ @today
-  ☐ ログアウトボタン @today
-  ☐ トップページに掲載する内容 @today
   ☐ firebaseへのデータ登録
   ☐ ログイン認証
   ☐ ログイン認証した後のユーザーごとのメモの出し分け
+  ☐ 各処理完了後のトースト表示
   ☐ editページがitemページ以外からアクセスされた場合はitemページにリダイレクト
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
@@ -15,6 +12,10 @@
   @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#33
 
 Archive:
+  ✔ ログインページ @done(20-09-26 23:51) @project(残り作業)
+  ✔ ログアウトボタン @done(20-09-26 22:50) @project(残り作業)
+  ✔ SP時の表示 @done(20-09-26 22:26) @project(残り作業)
+  ✔ トップページに掲載する内容 @done(20-09-26 22:26) @project(残り作業)
   ✔ ページ遷移の挙動 @done(20-09-26 07:21) @project(残り作業)
   ✔ コンテンツ部分のスクロール @done(20-09-26 11:11) @project(残り作業)
   ✔ メモの作成日、最終更新日データを追加 @done(20-09-26 10:54) @project(残り作業)
@@ -29,11 +30,17 @@ Archive:
   ✔ マークダウンへの対応 @done(20-09-26 06:17) @project(コード内記載)
   ✔ 削除後のページ遷移のタイミング・挙動検討 @done(20-09-26 06:15) @project(コード内記載)
 
-■■■ 参考 ■■■
-・マークダウンのレンダリング
-https://dev.classmethod.jp/articles/nuxtjs-markdown-it/
-https://qiita.com/Yoshihiro-Hirose/items/6fe2ed7e5cd9e145444a
-「markdown-it」も一緒にインストールする必要があった（「@nuxtjs/markdownit」だけインストールしてエラー出た）
+Memo:
+  ■■■ 参考 ■■■
+  ・マークダウンのレンダリング
+  https://dev.classmethod.jp/articles/nuxtjs-markdown-it/
+  https://qiita.com/Yoshihiro-Hirose/items/6fe2ed7e5cd9e145444a
+  「markdown-it」も一緒にインストールする必要があった（「@nuxtjs/markdownit」だけインストールしてエラー出た）
 
-・非破壊的な配列のソート
-https://qiita.com/mitsuhiro_K/items/f09daee3932716caf07b
+  ・非破壊的な配列のソート
+  https://qiita.com/mitsuhiro_K/items/f09daee3932716caf07b
+
+  ・SCSSの記述
+  https://www.tam-tam.co.jp/tipsnote/html_css/post10708.html
+  https://qiita.com/one-a/items/2758511326c09200fded
+  https://maku77.github.io/sass/string.html

@@ -1,12 +1,17 @@
 <template>
   <div class="memo-wrapper">
-    <div class="memo-list has-background-light">
-      <div class="memo-list__btn has-background-light">
-        <nuxt-link to="/create" class="button is-text">
+    <div class="memo-list has-background-light is-hidden-mobile">
+      <div class="memo-list__btn buttons has-background-light">
+        <nuxt-link to="/create" class="button is-text mr-0">
           <span class="icon">
-            <fa :icon="['fas', 'plus']" class="fa-lg" />
+            <fa :icon="['fas', 'plus']" />
           </span>
         </nuxt-link>
+        <button class="button is-text" @click.prevent="signOut">
+          <span class="icon">
+            <fa :icon="['fas', 'sign-out-alt']" />
+          </span>
+        </button>
       </div>
       <transition-group name="memo-list-item">
         <memo-list-item v-for="memo in memoList"
@@ -30,16 +35,17 @@ export default {
   components: {
     MemoListItem,
   },
+  methods: {
+    signOut() {
+      this.$router.push('/sign-in');
+    }
+  },
   mounted() {
     this.$store.dispatch('memo/loadMemoList', 'user01');
   },
   computed: {
     memoList() {
-      const list = this.$store.getters['memo/getMemoList'];
-      const listSorted = list.slice().sort(function(a, b) {
-        return b.dateUpdated - a.dateUpdated;
-      });
-      return listSorted;
+      return this.$store.getters['memo/getMemoListSorted'];
     }
   }
 }
@@ -50,7 +56,9 @@ $memo-list-width: 25%;
 $memo-list-btn-height: 48px;
 
 .memo-wrapper {
-  padding-left: $memo-list-width;
+  @include mq(mb-mf) {
+    padding-left: $memo-list-width;
+  }
 }
 .memo-list {
   position: fixed;
@@ -70,12 +78,27 @@ $memo-list-btn-height: 48px;
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 .75rem;
+  padding: 0 .5rem;
   justify-content: flex-end;
   align-items: center;
+  & > .button {
+    margin-bottom: 0;
+  }
 }
 .memo-content {
-  padding: ($memo-list-btn-height + 8px) 32px 32px;
+  position: relative;
+  padding: ($memo-list-btn-height + 8px) 16px 16px;
+  @include mq(mb-mf) {
+    padding: ($memo-list-btn-height + 8px) 32px 32px;
+  }
+}
+.memo-content-btn {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  @include mq(mb-mf) {
+    left: 32px;
+  }
 }
 
 // ページトランジション
