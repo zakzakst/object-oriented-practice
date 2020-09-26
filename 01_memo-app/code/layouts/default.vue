@@ -25,15 +25,18 @@
     <div class="memo-content">
       <Nuxt />
     </div>
+    <toast />
   </div>
 </template>
 
 <script>
 import MemoListItem from '~/components/MemoListItem';
+import Toast from '~/components/Toast';
 
 export default {
   components: {
     MemoListItem,
+    Toast,
   },
   methods: {
     signOut() {

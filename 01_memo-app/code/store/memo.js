@@ -11,16 +11,7 @@ export const mutations = {
     state.memoList.push(payload);
   },
   deleteMemo(state, payload) {
-    const list = state.memoList;
-    // IDに対応するデータを取得
-    const target = list.find(memo => {
-      return memo.id === payload;
-    });
-    // 配列内の位置を取得して、削除
-    const targetIndex = list.indexOf(target);
-    list.splice(targetIndex, 1);
-    // トップページに遷移
-    this.$router.push('/');
+    state.memoList.splice(payload, 1);
   },
   updateMemo(state, payload) {
     const list = state.memoList;
@@ -32,13 +23,11 @@ export const mutations = {
     target.title = payload.title;
     target.text = payload.text;
     target.dateUpdated = Date.now();
-    // itemページに遷移
-    this.$router.push(`/item/${payload.id}`);
   }
 }
 
 export const actions = {
-  createMemo({commit}, payload) {
+  createMemo({commit, dispatch}, payload) {
     const dateNum = Date.now();
     // idは文字列に変換して登録（※あとでid参照を行う際のデータ型の関係上）
     payload.id = dateNum + '';
@@ -47,6 +36,8 @@ export const actions = {
     commit('setMemo', payload);
     // itemページに遷移
     this.$router.push(`/item/${payload.id}`);
+    // 登録完了メッセージを表示
+    dispatch('toast/setMessage', 'メモを登録しました', { root: true });
   },
   async loadMemoList({commit, state}, payload) {
     // 読込が完了していた場合は処理を終了
@@ -71,11 +62,26 @@ export const actions = {
       commit('setLoadDone', true);
     });
   },
-  deleteMemo({commit}, payload) {
-    commit('deleteMemo', payload);
+  deleteMemo({commit, state, dispatch}, payload) {
+    const list = state.memoList;
+    // IDに対応するデータを取得
+    const target = list.find(memo => {
+      return memo.id === payload;
+    });
+    const targetIndex = list.indexOf(target);
+    // 対象のメモを削除
+    commit('deleteMemo', targetIndex);
+    // トップページに遷移
+    this.$router.push('/');
+    // 削除メッセージを表示
+    dispatch('toast/setMessage', 'メモを削除しました', { root: true });
   },
-  updateMemo({commit}, payload) {
+  updateMemo({commit, dispatch}, payload) {
     commit('updateMemo', payload);
+    // itemページに遷移
+    this.$router.push(`/item/${payload.id}`);
+    // 更新メッセージを表示
+    dispatch('toast/setMessage', 'メモを更新しました', { root: true });
   }
 }
 

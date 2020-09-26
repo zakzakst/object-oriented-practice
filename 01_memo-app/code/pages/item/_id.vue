@@ -13,7 +13,7 @@
       </button>
     </div>
     <h1 class="title">{{ title }}</h1>
-    <div class="memo-item-date mb-4">
+    <div class="memo-item__date mb-4">
       <div class="tags has-addons">
         <span class="tag is-dark">作成日</span>
         <span class="tag is-light">{{ dateCreate }}</span>
@@ -24,17 +24,30 @@
       </div>
     </div>
     <p class="content" v-html="$md.render(text)"></p>
-    <div class="memo-item-btn buttons">
+    <div class="memo-item__btn buttons">
       <nuxt-link :to="`/edit/${$route.params.id}`" class="button is-light">
         <span class="icon">
           <fa :icon="['fas', 'pen']" class="fa-lg" />
         </span>
       </nuxt-link>
-      <button class="button is-light" @click.prevent="deleteMemo">
+      <button class="button is-light" @click.prevent="modalOpen">
         <span class="icon">
           <fa :icon="['fas', 'trash']" class="fa-lg" />
         </span>
       </button>
+    </div>
+    <div class="memo-item__modal modal" :class="{'is-active': modalIsActive}">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <p class="has-text-centered mb-4">メモを削除してよろしいですか</p>
+          <div class="buttons is-centered">
+            <button class="button is-dark" @click.prevent="deleteMemo">削除する</button>
+            <button class="button is-light" @click.prevent="modalClose">キャンセル</button>
+          </div>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click="modalClose"></button>
     </div>
   </div>
 </template>
@@ -47,6 +60,7 @@ export default {
       text: '',
       dateCreate: null,
       dateUpdated: null,
+      modalIsActive: false,
     }
   },
   methods: {
@@ -68,7 +82,14 @@ export default {
       }
     },
     deleteMemo() {
+      this.modalClose();
       this.$store.dispatch('memo/deleteMemo', this.id);
+    },
+    modalOpen() {
+      this.modalIsActive = true;
+    },
+    modalClose() {
+      this.modalIsActive = false;
     }
   },
   created() {
@@ -78,7 +99,7 @@ export default {
 </script>
 
 <style lang="scss">
-.memo-item-date {
+.memo-item__date {
   display: flex;
   & > .tags {
     margin-bottom: 0;
@@ -88,10 +109,16 @@ export default {
     }
   }
 }
-.memo-item-btn {
+.memo-item__btn {
   position: fixed;
   display: flex;
   top: 8px;
   right: 8px;
+}
+.memo-item__modal {
+  & > .modal-content {
+    max-width: 480px;
+    padding: 0 16px;
+  }
 }
 </style>
