@@ -1,23 +1,26 @@
 残り作業:
+  ☐ SP時の表示 @today
+  ☐ ログインページ @today
+  ☐ ログアウトボタン @today
+  ☐ トップページに掲載する内容 @today
   ☐ firebaseへのデータ登録
-  ☐ ページ遷移の挙動
-  ☐ コンテンツ部分のスクロール
-  ☐ SP時の表示
   ☐ ログイン認証
   ☐ ログイン認証した後のユーザーごとのメモの出し分け
-  ☐ mixinsにまとめるスクリプトあるか検討
-  ☐ メモのマークダウン対応
-  ☐ トップページに掲載する内容
-  ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
   ☐ editページがitemページ以外からアクセスされた場合はitemページにリダイレクト
+  ☐ mixinsにまとめるスクリプトあるか検討
+  ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 コード内記載:
   ☐ 読込前の状態でデータを取りにいった場合の処理
   @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#33
-  ☐ マークダウンへの対応
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#47
 
 Archive:
+  ✔ ページ遷移の挙動 @done(20-09-26 07:21) @project(残り作業)
+  ✔ コンテンツ部分のスクロール @done(20-09-26 11:11) @project(残り作業)
+  ✔ メモの作成日、最終更新日データを追加 @done(20-09-26 10:54) @project(残り作業)
+  ✔ 作成日・更新日を表示する @done(20-09-26 08:20) @project(残り作業)
+  ✔ 作成日・更新日を登録・更新する @done(20-09-26 10:54) @project(残り作業)
+  ✔ マークダウンへの対応 @done(20-09-26 07:12) @project(コード内記載)
   ✔ ページ作成後にそのメモのページに遷移させる @done(20-09-26 06:13) @project(コード内記載)
   ✔ バリデーションの実装 @done(20-09-26 06:02) @project(コード内記載)
   ✔ 読込前の状態でデータを取りにいった場合の処理 @done(20-09-26 06:02) @project(コード内記載)
@@ -25,3 +28,12 @@ Archive:
   ✔ バリデーションの実装 @done(20-09-26 06:02) @project(コード内記載)
   ✔ マークダウンへの対応 @done(20-09-26 06:17) @project(コード内記載)
   ✔ 削除後のページ遷移のタイミング・挙動検討 @done(20-09-26 06:15) @project(コード内記載)
+
+■■■ 参考 ■■■
+・マークダウンのレンダリング
+https://dev.classmethod.jp/articles/nuxtjs-markdown-it/
+https://qiita.com/Yoshihiro-Hirose/items/6fe2ed7e5cd9e145444a
+「markdown-it」も一緒にインストールする必要があった（「@nuxtjs/markdownit」だけインストールしてエラー出た）
+
+・非破壊的な配列のソート
+https://qiita.com/mitsuhiro_K/items/f09daee3932716caf07b

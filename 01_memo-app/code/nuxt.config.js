@@ -42,6 +42,7 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     'nuxt-fontawesome',
+    '@nuxtjs/markdownit',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -69,5 +70,22 @@ export default {
         icons: ['far']
       },
     ]
+  },
+
+  markdownit: {
+    injected: true,
+    use: [
+      'markdown-it-plantuml',
+      'markdown-it-br',
+      [
+        'markdown-it-link-attributes',
+        {
+          attrs: {
+            target: '_blank',
+            rel: 'noopener'
+          }
+        }
+      ],
+    ],
   },
 }
