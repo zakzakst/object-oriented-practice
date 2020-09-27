@@ -1,6 +1,6 @@
 <template>
   <div class="sign-in">
-    <h1 class="title is-4 has-text-centered">サインイン</h1>
+    <h1 class="title is-4 has-text-centered">サインイン・サインアップ</h1>
     <div class="box">
       <div class="tabs is-fullwidth">
         <ul>
@@ -26,22 +26,22 @@
         <div class="field">
           <label class="label">メールアドレス</label>
           <div class="control has-icons-left">
-            <input v-model="mail" class="input is-danger" type="email" placeholder="sample@mail.com">
+            <input v-model="mail" :class="{'is-danger': mailValid}" class="input" type="email" placeholder="sample@mail.com" @input="formInputCheck">
             <span class="icon is-small is-left">
               <fa :icon="['fas', 'envelope']" />
             </span>
           </div>
-          <p class="help is-danger">必須項目です</p>
+          <p v-if="mailValid" class="help is-danger">メールアドレスを入力してください</p>
         </div>
         <div class="field">
           <label class="label">パスワード</label>
           <div class="control has-icons-left">
-            <input v-model="password" class="input" type="password" placeholder="パスワードを入力してください">
+            <input v-model="password" :class="{'is-danger': passwordValid}" class="input" type="password" placeholder="パスワードを入力してください" @input="formInputCheck">
             <span class="icon is-small is-left">
               <fa :icon="['fas', 'lock']" />
             </span>
           </div>
-          <p class="help">必須項目です</p>
+          <p v-if="passwordValid" class="help is-danger">パスワードを入力してください</p>
         </div>
         <div class="field is-grouped is-grouped-centered mt-5">
           <p v-show="activeContent === 'signIn'" class="control">
@@ -64,9 +64,11 @@ export default {
   layout: 'plain',
   data() {
     return {
-      activeContent: 'signUp',
+      activeContent: 'signIn',
       mail: '',
-      password: ''
+      password: '',
+      mailValid: false,
+      passwordValid: false
     }
   },
   methods: {
@@ -74,10 +76,37 @@ export default {
       this.activeContent = name;
     },
     signIn() {
-      this.$router.push('/');
+      // バリデーションの返り値がfalseなら処理を終了
+      if (!this.formValid()) return;
+      this.$store.dispatch('auth/signIn', {
+        mail: this.mail,
+        password: this.password
+      });
     },
     signUp() {
-      this.$router.push('/');
+      // バリデーションの返り値がfalseなら処理を終了
+      if (!this.formValid()) return;
+      this.$store.dispatch('auth/signUp', {
+        mail: this.mail,
+        password: this.password
+      });
+    },
+    formValid() {
+      if (!this.mail || !this.password) {
+        console.log('入力欄が空白');
+        this.mailValid = this.mail.length > 0 ? false : true;
+        this.passwordValid = this.password.length > 0 ? false : true;
+        return false;
+      }
+      return true;
+    },
+    formInputCheck(e) {
+      if(this.mailValid) {
+        this.mailValid = this.mail.length > 0 ? false : true;
+      }
+      if(this.passwordValid) {
+        this.passwordValid = this.password.length > 0 ? false : true;
+      }
     },
     formClear() {
       this.mail = '';

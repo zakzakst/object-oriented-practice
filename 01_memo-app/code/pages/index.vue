@@ -38,9 +38,6 @@ export default {
       this.$router.push('/sign-in');
     }
   },
-  mounted() {
-    this.$store.dispatch('memo/loadMemoList', 'user01');
-  },
   computed: {
     memoList() {
       return this.$store.getters['memo/getMemoListSorted'];

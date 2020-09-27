@@ -1,12 +1,10 @@
+import fireApp from '@/plugins/firebase'
+
 export const state = () => ({
-  loadDone: false,
   memoList: []
 })
 
 export const mutations = {
-  setLoadDone(state, payload) {
-    state.loadDone = payload;
-  },
   setMemo(state, payload) {
     state.memoList.push(payload);
   },
@@ -22,72 +20,91 @@ export const mutations = {
     // 内容を変更
     target.title = payload.title;
     target.text = payload.text;
-    target.dateUpdated = Date.now();
+    target.dateUpdated = payload.dateUpdated;
+  },
+  clearMemoList(state) {
+    state.memoList = [];
   }
 }
 
 export const actions = {
-  createMemo({commit, dispatch}, payload) {
-    const dateNum = Date.now();
-    // idは文字列に変換して登録（※あとでid参照を行う際のデータ型の関係上）
-    payload.id = dateNum + '';
+  async createMemo({dispatch, rootState}, payload) {
+    // ユーザーIDがない場合は処理を終了
+    const userId = rootState.auth.id;
+    if(!userId) return;
+    // 作成日・更新日を設定
+    const dateNum = Date.now() + '';
     payload.dateCreate = dateNum;
     payload.dateUpdated = dateNum;
-    commit('setMemo', payload);
-    // itemページに遷移
-    this.$router.push(`/item/${payload.id}`);
+    // firebaseにデータ登録
+    const res = await fireApp.database().ref(`01_memo-app/${userId}`).push(payload);
+    // 登録したitemページに遷移
+    this.$router.push(`/item/${res.key}`);
     // 登録完了メッセージを表示
     dispatch('toast/setMessage', 'メモを登録しました', { root: true });
   },
-  async loadMemoList({commit, state}, payload) {
-    // 読込が完了していた場合は処理を終了
-    if (state.loadDone) {
-      console.log('メモデータロード済のため処理を終了');
-      return;
-    }
-    // サンプル用のjsonデータ読み込み
-    const res = await this.$axios.$get('sample-data.json');
-    const memoListData = res['memo-app']['memo'][payload];
-    // keyをメモのIDに設定して、memoListに追加
-    Object.keys(memoListData).forEach(memoId => {
-      const memoObj = {
-        id: memoId,
-        title: memoListData[memoId].title,
-        text: memoListData[memoId].text,
-        dateCreate: memoListData[memoId].dateCreate,
-        dateUpdated: memoListData[memoId].dateUpdated,
-      };
+  loadMemoList({commit, rootState}) {
+    // ユーザーIDがない場合は処理を終了
+    const userId = rootState.auth.id;
+    if(!userId) return;
+    fireApp.database().ref(`01_memo-app/${userId}`).on('child_added', snapshot => {
+      // 読み込んだデータから項目セット用のオブジェクトを作成
+      const memoObj = snapshot.val();
+      memoObj.id = snapshot.key;
+      // stateにデータをセット
       commit('setMemo', memoObj);
-      // 読込完了をtrueにする
-      commit('setLoadDone', true);
+      console.log('項目セット');
     });
   },
-  deleteMemo({commit, state, dispatch}, payload) {
-    const list = state.memoList;
-    // IDに対応するデータを取得
-    const target = list.find(memo => {
-      return memo.id === payload;
+  deleteMemo({commit, state, dispatch, rootState}, payload) {
+    // ユーザーIDがない場合は処理を終了
+    const userId = rootState.auth.id;
+    if(!userId) return;
+    // firebaseのデータを削除
+   fireApp.database().ref(`01_memo-app/${userId}/${payload}`).remove(() => {
+      // IDに対応するデータを取得
+      const list = state.memoList;
+      const target = list.find(memo => {
+        return memo.id === payload;
+      });
+      const targetIndex = list.indexOf(target);
+      // 対象のメモをstateから削除
+      commit('deleteMemo', targetIndex);
+      // トップページに遷移
+      this.$router.push('/');
+      // 削除メッセージを表示
+      dispatch('toast/setMessage', 'メモを削除しました', { root: true });
     });
-    const targetIndex = list.indexOf(target);
-    // 対象のメモを削除
-    commit('deleteMemo', targetIndex);
-    // トップページに遷移
-    this.$router.push('/');
-    // 削除メッセージを表示
-    dispatch('toast/setMessage', 'メモを削除しました', { root: true });
   },
-  updateMemo({commit, dispatch}, payload) {
-    commit('updateMemo', payload);
-    // itemページに遷移
-    this.$router.push(`/item/${payload.id}`);
-    // 更新メッセージを表示
-    dispatch('toast/setMessage', 'メモを更新しました', { root: true });
+  updateMemo({commit, dispatch, rootState}, payload) {
+    // ユーザーIDがない場合は処理を終了
+    const userId = rootState.auth.id;
+    if(!userId) return;
+    // 更新日を設定
+    payload.dateUpdated = Date.now() + '';
+    // 更新用データを作成
+    const updateObj = {
+      title: payload.title,
+      text: payload.text,
+      dateUpdated: payload.dateUpdated
+    };
+    // firebaseのデータを更新
+    fireApp.database().ref(`01_memo-app/${userId}/${payload.id}`).update(updateObj, () => {
+      // 対象のメモのstateを更新
+      commit('updateMemo', payload);
+      // itemページに遷移
+      this.$router.push(`/item/${payload.id}`);
+      // 更新メッセージを表示
+      dispatch('toast/setMessage', 'メモを更新しました', { root: true });
+    });
+  },
+  clearMemoList({commit}) {
+    commit('clearMemoList');
   }
 }
 
 export const getters = {
   getMemoList(state) {
-    console.log('メモデータ取得');
     return state.memoList;
   },
   getMemoListSorted(state) {

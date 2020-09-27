@@ -40,15 +40,38 @@ export default {
   },
   methods: {
     signOut() {
-      this.$router.push('/sign-in');
+      this.$store.dispatch('auth/signOut');
     }
   },
-  mounted() {
-    this.$store.dispatch('memo/loadMemoList', 'user01');
+  created() {
+    // ログイン判定後、各処理を実行
+    if (!this.uid) {
+      // ログインしていない場合
+      this.$store.dispatch('auth/setId');
+    } else {
+      // ログインしている場合
+      if (!this.memoList.length) {
+        this.$store.dispatch('memo/loadMemoList');
+      }
+    }
   },
   computed: {
+    uid() {
+      return this.$store.getters['auth/id'];
+    },
     memoList() {
       return this.$store.getters['memo/getMemoListSorted'];
+    }
+  },
+  watch: {
+    uid(val) {
+      if (val) {
+        // メモデータをセット
+        this.$store.dispatch('memo/loadMemoList');
+      } else {
+        // メモデータをクリア
+        this.$store.dispatch('memo/clearMemoList');
+      }
     }
   }
 }

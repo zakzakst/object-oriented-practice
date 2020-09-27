@@ -1,16 +1,22 @@
 残り作業:
-  ☐ firebaseへのデータ登録
-  ☐ ログイン認証
-  ☐ ログイン認証した後のユーザーごとのメモの出し分け
+  ☐ firebase hostingへのアップロード
   ☐ editページがitemページ以外からアクセスされた場合はitemページにリダイレクト
+
+最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
-コード内記載:
-  ☐ 読込前の状態でデータを取りにいった場合の処理
-  @file:///c%3A/Users/Owner/Desktop/オブジェクト指向練習/object-oriented-practice/01_memo-app/code/pages/item/_id.vue#33
 
 Archive:
+  ✔ firebaseへのデータ登録 @done(20-09-28 03:19) @project(残り作業)
+  ✔ firebaseのデータ更新ルールをディレクトリごとに設定 @done(20-09-28 03:31) @project(残り作業)
+  ✘ 登録されているメモがない場合、トップページに文言を表示 @cancelled(20-09-28 03:47) @project(残り作業)
+  ✔ ログイン画面のバリデーション @done(20-09-28 03:45) @project(残り作業)
+  ✘ データ読み込み時のローディングアニメーション @cancelled(20-09-28 03:20) @project(残り作業)
+  ✔ ログイン認証 @done(20-09-28 03:19) @project(残り作業)
+  ✔ ログイン認証した後のユーザーごとのメモの出し分け @done(20-09-28 03:19) @project(残り作業)
+  ✔ firebaseの認証・データ読込・書き込みの流れを整理する @done(20-09-28 03:19) @project(残り作業)
+  ✔ 読込前の状態でデータを取りにいった場合の処理 @done(20-09-28 03:20) @project(コード内記載)
   ✔ メモ削除前に確認モーダルを表示 @done(20-09-27 03:49) @project(残り作業)
   ✔ 各処理完了後のトースト表示 @done(20-09-27 03:50) @project(残り作業)
   ✔ ログインページ @done(20-09-26 23:51) @project(残り作業)
@@ -46,7 +52,16 @@ Memo:
   https://qiita.com/one-a/items/2758511326c09200fded
   https://maku77.github.io/sass/string.html
 
+  ・firebaseの読み取り、書き込み設定
+  https://firebase.google.com/docs/database/security?hl=ja
+
   ■■■ 反省など ■■■
   ・各種ボタンの配置を計画していなかったので、各ページでバラバラになってしまった。次は整理して、まとまりをコンポーネント化したい
 
   ・storeのmutations内でsettimeoutを使ってstateを変更しようとしたら上手くいかなかった。actionsのほうで処理したら上手くいった
+
+  ・firebaseのupdate、deleteは関数の引数にcallbackを設定できる（promiseオブジェクトが返ってくる訳ではないのでasync、awaitは使わない）
+
+  ・firebaseのupdateは更新データ分のみ上書きしてくれる
+
+  ・少しデータの流れとかごちゃごちゃになってしまったので、「登録されているメモがない場合の表示」「ローディングアニメーション」は対応しない。次の練習で対応
