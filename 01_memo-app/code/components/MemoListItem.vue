@@ -19,7 +19,7 @@ export default {
   props: ['id', 'title', 'dateUpdated'],
   computed: {
     dateUpdatedStr() {
-      const dateUpdatedObj = new Date(this.dateUpdated);
+      const dateUpdatedObj = new Date(Number(this.dateUpdated));
       return `${dateUpdatedObj.toLocaleDateString()} ${dateUpdatedObj.toLocaleTimeString()}`;
     }
   }

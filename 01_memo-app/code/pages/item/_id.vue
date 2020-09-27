@@ -68,18 +68,12 @@ export default {
       this.$router.push('/sign-in');
     },
     setItemData() {
-      this.id = this.$route.params.id;
-      // 対応するメモデータを取得
-      const itemData = this.$store.getters['memo/getMemoItem'](this.id);
-      // TODO:読込前の状態でデータを取りにいった場合の処理
-      if(itemData) {
-        this.title = itemData.title;
-        this.text = itemData.text;
-        const dateCreateObj = new Date(itemData.dateCreate);
-        this.dateCreate = dateCreateObj.toLocaleDateString();
-        const dateUpdatedObj = new Date(itemData.dateUpdated);
-        this.dateUpdated = dateUpdatedObj.toLocaleDateString();
-      }
+      this.title = this.itemData.title;
+      this.text = this.itemData.text;
+      const dateCreateObj = new Date(Number(this.itemData.dateCreate));
+      this.dateCreate = dateCreateObj.toLocaleDateString();
+      const dateUpdatedObj = new Date(Number(this.itemData.dateUpdated));
+      this.dateUpdated = dateUpdatedObj.toLocaleDateString();
     },
     deleteMemo() {
       this.modalClose();
@@ -93,8 +87,25 @@ export default {
     }
   },
   created() {
-    this.setItemData();
+    if (this.itemData) {
+      this.setItemData();
+    }
   },
+  computed: {
+    id() {
+      return this.$route.params.id;
+    },
+    itemData() {
+      return this.$store.getters['memo/getMemoItem'](this.id);
+    }
+  },
+  watch: {
+    itemData(newList, oldList) {
+      if (newList || !oldList) {
+        this.setItemData();
+      }
+    }
+  }
 }
 </script>
 
