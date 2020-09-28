@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "todohighlight.keywords": [
+      {
+        "text": "DEBUG:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#664400"
+      },
+      {
+        "text": "NOTE:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#002288"
+      },
+      {
+        "text": "HACK:",
+        "color": "#FFFFFF",
+        "backgroundColor": "#006600"
+      },
+      {
+        "text": "TODO:",
+        "color": "#FFF",
+        "backgroundColor": "#662200",
+        "overviewRulerColor": "transparent",
+      },
+      {
+        "text": "FIXME",
+        "color": "#FFF",
+        "backgroundColor": "#220088"
+      }
+    ],
+    "todohighlight.defaultStyle": {
+      "overviewRulerColor": "transparent",
+      "isWholeLine": false
+    },
+    "todo.colors.tag": "#666666",
+  }
+}
