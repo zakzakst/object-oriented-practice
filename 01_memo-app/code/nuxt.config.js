@@ -18,6 +18,11 @@ export default {
     ]
   },
 
+  router: {
+    base: '/01_memo-app/',
+    middleware: ['redirect']
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/sass/_normalize.scss',
@@ -50,6 +55,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config) {
+      config.performance.maxAssetSize = 10000000;
+      config.performance.maxEntrypointSize = 10000000;
+    },
   },
 
   styleResources: {
