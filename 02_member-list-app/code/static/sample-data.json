@@ -1,0 +1,30 @@
+{
+  "auth": {
+    "user": [
+      {
+        "uid": "user01",
+        "email": "",
+        "password": ""
+      }
+    ]
+  },
+  "member-list-app": {
+    "team": {
+      "team01": {
+        "name": "エンジニアリング",
+        "introduction": "テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。",
+        "icon": "icon-engineering.png"
+      }
+    },
+    "member": {
+      "user01": {
+        "name": "山田太郎",
+        "tel": "000-0000-0001",
+        "mail": "tyamada@mail.com",
+        "messenger": "@yamadataro001",
+        "onlineStatus": false,
+        "teamId": "team01"
+      }
+    }
+  }
+}
