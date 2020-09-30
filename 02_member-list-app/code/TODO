@@ -7,7 +7,7 @@ TODO:
   ☐ mapState非推奨, mapGetters推奨
   ☐ propsdown eventup推奨
   ☐ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b
-  ☐ https://aloerina01.github.io/blog/2018-12-25-1#-override%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8Fmerge%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A0%E3%81%91
+  ☐ https://aloerina01.github.io/blog/2018-12-25-1
   ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
 
 最後に対応:
