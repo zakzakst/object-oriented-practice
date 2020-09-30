@@ -1,28 +1,40 @@
+TODO:
+  ☐ コンポーネント作成
+
+調べる・読む:
+  ☐ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/#asyncdata-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89）
+  ☐ mapMutation非推奨, mapActions推奨
+  ☐ mapState非推奨, mapGetters推奨
+  ☐ propsdown eventup推奨
+  ☐ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b
+  ☐ https://aloerina01.github.io/blog/2018-12-25-1#-override%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8Fmerge%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%A0%E3%81%91
+  ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
+
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
-Todo:
-  ☐ Item
-  ✔ Item @done(20-09-25 23:07)
-  ✘ Item @cancelled(20-09-25 23:07)
-
-Todo2:
-  ☐ Item @critical
-  ☐ Item @high
-  ☐ Item @today
-  ☐ Item @low
-
-Todo3:
-  ☐ Item @3d
-  ☐ Item @3h
-  ☐ Item @2h
-  ☐ Item @3m
-
 Archive:
+  ✔ コンポーネント・STATEを計画する @done(20-10-01 04:30) @project(TODO)
+  ✔ リダイレクトを計画する @done(20-10-01 04:30) @project(TODO)
+  ✔ https://namu-r21.hatenablog.com/entry/2018/03/21/232726 @done(20-09-29 10:29) @project(調べる・読む)
+  ✔ https://aloerina01.github.io/blog/2019-09-25-1 @done(20-09-29 10:50) @project(調べる・読む)
+  ✔ https://medium.com/studist-dev/ddd-vuex-c47055f6c1ba @done(20-09-29 13:05) @project(調べる・読む)
+  ✔ https://tech.smartshopping.co.jp/nuxt_bff @done(20-09-29 13:06) @project(調べる・読む)
+  ✔ https://qiita.com/kudo_kk/items/d8cfff0f9fefe62da356 @done(20-09-29 13:23) @project(調べる・読む)
+  ✔ https://qiita.com/kahirokunn/items/6b4834b9a13406535f32 @done(20-10-01 03:49) @project(調べる・読む)
+  ✔ ドメイン駆動設計 @done(20-10-01 03:49) @project(調べる・読む)
+  ✔ https://qiita.com/eKushida/items/39bdb3f88fb68ecd66f6 @done(20-10-01 03:51) @project(調べる・読む)
 
+Memo:
+  ■■■ 参考 ■■■
+  ・componentやstoreの設計方法
+  https://techblog.roxx.co.jp/entry/2019/02/14/154002（「Presentational Component」「Container Component」）
+  https://qiita.com/suzu-4/items/bc86be23aa4eedd4cfaa（「役割早見表」「アプリケーションにとって重要なStateであるならばStoreに持たせて、そうでないならComponentのローカルStateとして取り扱うといった使い分け」）
+  https://namu-r21.hatenablog.com/entry/2018/03/21/232726（「MVCとMVVM,Fluxで大きく異なるのは,View側にサーバ(Model,Controller)とは独立したアプリケーションがあり,Viewで独立したデータ状態を持つ/制御することであろう」）
+  https://aloerina01.github.io/blog/2019-09-25-1（「VuexのStoreはGetterを通じてStateの一部を切り出してViewに渡すことができます」「プロパティアクセスのGetterは返すデータを表す名詞で命名する」「メソッドアクセスのGetterはfind{名詞}やfind{名詞}By{条件}と命名し、引数に条件をとる」「Stateを加工したり組み合わせたりして表示に適した値に変換する処理は、原則Component側で担うようにしています。StoreからGetterで取得した値をComputedなどで変換して表示する」「StoreのGetterをViewに依存させないこと(Viewの仕様に引きずられないこと)を重視したい」）
+  https://medium.com/studist-dev/ddd-vuex-c47055f6c1ba（「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「UI層の仕事はドメインの複雑さを解決することなどではありません。その名の通り、ユーザーとのインタフェースを築く豊かな表現に集中すべきです。つまりドメインの複雑さをUI層から分離・隔離し、UI層が本来の仕事に集中できる洗練されたモデルを提供する存在が必要です。その存在こそがstoreです。」）
+  https://qiita.com/kudo_kk/items/d8cfff0f9fefe62da356（「mapState非推奨, mapGetters推奨」「mapMutation非推奨, mapActions推奨」「propsdown eventup推奨」）
+  https://qiita.com/kahirokunn/items/6b4834b9a13406535f32（「他のcomponentがthis.$refs.hoge.getUsers()ってコードを書いて、そのメソッドを実行している可能性が完全になくなりましたね！」「dataの値が定数とかpropsから算出できる値なら、できるだけcomputedに移してあげましょう。なぜならsetterがないcomputed はread onlyだからです。read onlyは変更される心配がないためバグを減らしてくれるとても素晴らしいものです！」「template内でdataなどを直接変更したりイベントを発火したりするコードを直接書くことはよくありません。methodで定義すれば、メソッド名によって式の意図を簡単に伝えられる」「必須propsに必ずrequired: trueを付ける」「slotに渡されたアイテムの開閉だけを担当するコンポーネントと、専用のslotをいくつか用意したレイアウト用のコンポーネントを作成し、それをメインとなるコンポーネントで使ってはどうでしょうか。コードがとても見通しがよくなります。」）
 
-使い方参考
-https://fereria.github.io/reincarnation_tech/98_Other/VSCode/vscode_task/
-
-Todo:Open Embedded　タスクリストの作成
+  ■■■ 反省など ■■■
