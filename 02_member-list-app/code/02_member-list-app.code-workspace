@@ -9,6 +9,7 @@
       ".nuxt": true,
       "dist": true,
       ".editorconfig": true,
+      "jsconfig.json": true,
     },
     "git.ignoreLimitWarning": true,
     "todohighlight.keywords": [

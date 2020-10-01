@@ -1,0 +1,27 @@
+<template>
+  <!-- チームのコレクションビュー要素 -->
+  <nuxt-link :to="id">
+    <img :src="icon" :alt="name">
+    <p>{{ name }}</p>
+  </nuxt-link>
+</template>
+
+<script>
+export default {
+  props: {
+    id: {type: String, required: true},
+    name: {type: String, required: true},
+    icon: {type: String, required: true},
+  },
+  // data() {
+  //   return {
+  //     id: 'team01',
+  //     name: 'エンジニアリング',
+  //     icon: 'icon-engineering.png',
+  //   }
+  // }
+}
+</script>
+
+<style lang="scss">
+</style>

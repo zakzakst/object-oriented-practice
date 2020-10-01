@@ -1,5 +1,7 @@
 TODO:
-  ☐ コンポーネント作成
+  ☐ 編集用コンポーネント作成
+  ☐ 新規追加用コンポーネント作成
+  ☐ コンポーネントスタイル作成
 
 調べる・読む:
   ☐ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/#asyncdata-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89）
@@ -15,6 +17,10 @@ TODO:
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ チームコンポーネントベース作成 @done(20-10-02 07:35) @project(TODO)
+  ✔ 社員コンポーネントベース作成 @done(20-10-02 07:35) @project(TODO)
+  ✔ コレクションビューのフィルターをどうするか（メンバーの全体とチームでフィルターかけたパターン）→propsにチームフィルタを設定して対応してみる（デフォルトは全体表示） @done(20-10-02 07:30) @project(TODO)
+  ✘ メンバーとチームの対応関係が必要な時の処理手順考える @cancelled(20-10-02 04:23) @project(TODO)
   ✔ コンポーネント・STATEを計画する @done(20-10-01 04:30) @project(TODO)
   ✔ リダイレクトを計画する @done(20-10-01 04:30) @project(TODO)
   ✔ https://namu-r21.hatenablog.com/entry/2018/03/21/232726 @done(20-09-29 10:29) @project(調べる・読む)
@@ -27,6 +33,11 @@ Archive:
   ✔ https://qiita.com/eKushida/items/39bdb3f88fb68ecd66f6 @done(20-10-01 03:51) @project(調べる・読む)
 
 Memo:
+  ■■■ 反省など ■■■
+  ・「メンバーとチームの対応関係」のやり方ちょっとこんがらがりそうなので、次回の課題にする（一旦今回は、データ読み込み時にデータ照合する対応、データ編集した時に更新とかややこしそうだがスルー）
+
+  ・コレクションビューのフィルターをpropsで対応してみたの上手くいったと思う（他の方法も勉強する）
+
   ■■■ 参考 ■■■
   ・componentやstoreの設計方法
   https://techblog.roxx.co.jp/entry/2019/02/14/154002（「Presentational Component」「Container Component」）
@@ -36,5 +47,3 @@ Memo:
   https://medium.com/studist-dev/ddd-vuex-c47055f6c1ba（「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「UI層の仕事はドメインの複雑さを解決することなどではありません。その名の通り、ユーザーとのインタフェースを築く豊かな表現に集中すべきです。つまりドメインの複雑さをUI層から分離・隔離し、UI層が本来の仕事に集中できる洗練されたモデルを提供する存在が必要です。その存在こそがstoreです。」）
   https://qiita.com/kudo_kk/items/d8cfff0f9fefe62da356（「mapState非推奨, mapGetters推奨」「mapMutation非推奨, mapActions推奨」「propsdown eventup推奨」）
   https://qiita.com/kahirokunn/items/6b4834b9a13406535f32（「他のcomponentがthis.$refs.hoge.getUsers()ってコードを書いて、そのメソッドを実行している可能性が完全になくなりましたね！」「dataの値が定数とかpropsから算出できる値なら、できるだけcomputedに移してあげましょう。なぜならsetterがないcomputed はread onlyだからです。read onlyは変更される心配がないためバグを減らしてくれるとても素晴らしいものです！」「template内でdataなどを直接変更したりイベントを発火したりするコードを直接書くことはよくありません。methodで定義すれば、メソッド名によって式の意図を簡単に伝えられる」「必須propsに必ずrequired: trueを付ける」「slotに渡されたアイテムの開閉だけを担当するコンポーネントと、専用のslotをいくつか用意したレイアウト用のコンポーネントを作成し、それをメインとなるコンポーネントで使ってはどうでしょうか。コードがとても見通しがよくなります。」）
-
-  ■■■ 反省など ■■■
