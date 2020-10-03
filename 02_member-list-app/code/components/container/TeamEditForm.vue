@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     teamItem() {
-      const teamItemBase = this.$store.getters['team/findTeamItemById'](this.id);
+      const teamItemBase = this.$store.getters['team/findItemById'](this.id);
       return JSON.parse(JSON.stringify(teamItemBase));
     }
   },

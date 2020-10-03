@@ -1,6 +1,5 @@
 TODO:
-  ☐ firebaseの設定
-  ☐ ログイン認証
+  ☐ 社員データの処理
   ☐ 各種リダイレクト
   ☐ 登録データがない場合の表示（違うIDでアクセスしたさいの表示も余裕あったら考えたい）
   ☐ ローディングアニメーション
@@ -8,6 +7,10 @@ TODO:
   ☐ ページのスタイル作成
   ☐ 404ページ
   ☐ フォーム画面から離れる場合のアラート（ナビゲーションガード）
+  ☐ 追々「最初は○件のデータを読み込む」的なこともやりたい
+  ☐ 直接チームシングルページにアクセスした時にチームデータがロードされていないので、内容が表示されない
+  ☐ チームや社員の順番をコントロールするデータを持たせたほうがいいか
+  ☐ エラー時の表示
 
 調べる・読む:
   ☐ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/#asyncdata-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89）
@@ -18,13 +21,16 @@ TODO:
   ☐ https://aloerina01.github.io/blog/2018-12-25-1
   ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
   ☐ https://qiita.com/syuji-higa/items/477b7ddc9cd946f5f28f
-  ✔ 戻るボタン（https://router.vuejs.org/ja/guide/essentials/navigation.html） @done(20-10-03 15:45)
 
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ firebaseの設定 @done(20-10-04 08:35) @project(TODO)
+  ✔ ログイン認証 @done(20-10-03 19:36) @project(TODO)
+  ✔ チームデータの処理 @done(20-10-04 08:35) @project(TODO)
+  ✔ 戻るボタン（https://router.vuejs.org/ja/guide/essentials/navigation.html） @done(20-10-03 15:45) @project(調べる・読む)
   ✔ 各種ページの作成 @done(20-10-03 15:39) @project(TODO)
   ✘ 前のページに戻るボタン、最初のページだったら（そもそも戻るページがないから）表示しない設定 @cancelled(20-10-03 15:33) @project(TODO)
   ✘ teamIcon.iconの変更に対応して画像が切り替わらない @cancelled(20-10-03 15:31) @project(TODO)
@@ -73,3 +79,6 @@ Memo:
   https://medium.com/studist-dev/ddd-vuex-c47055f6c1ba（「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「ドメインとなるデータをstoreに格納し、ドメインではないデータ、例えば画面由来の一時的なデータはコンポーネント側のローカルstateに格納します。」「UI層の仕事はドメインの複雑さを解決することなどではありません。その名の通り、ユーザーとのインタフェースを築く豊かな表現に集中すべきです。つまりドメインの複雑さをUI層から分離・隔離し、UI層が本来の仕事に集中できる洗練されたモデルを提供する存在が必要です。その存在こそがstoreです。」）
   https://qiita.com/kudo_kk/items/d8cfff0f9fefe62da356（「mapState非推奨, mapGetters推奨」「mapMutation非推奨, mapActions推奨」「propsdown eventup推奨」）
   https://qiita.com/kahirokunn/items/6b4834b9a13406535f32（「他のcomponentがthis.$refs.hoge.getUsers()ってコードを書いて、そのメソッドを実行している可能性が完全になくなりましたね！」「dataの値が定数とかpropsから算出できる値なら、できるだけcomputedに移してあげましょう。なぜならsetterがないcomputed はread onlyだからです。read onlyは変更される心配がないためバグを減らしてくれるとても素晴らしいものです！」「template内でdataなどを直接変更したりイベントを発火したりするコードを直接書くことはよくありません。methodで定義すれば、メソッド名によって式の意図を簡単に伝えられる」「必須propsに必ずrequired: trueを付ける」「slotに渡されたアイテムの開閉だけを担当するコンポーネントと、専用のslotをいくつか用意したレイアウト用のコンポーネントを作成し、それをメインとなるコンポーネントで使ってはどうでしょうか。コードがとても見通しがよくなります。」）
+
+  ・rootStateはmutations内では使えず、gettersとactionsの中でしか使えない。
+  https://qiita.com/hisashi_matsui/items/7cd872186a2b16e37ae1

@@ -1,6 +1,6 @@
 <template>
   <!-- チームのコレクションビュー -->
-  <div>
+  <div v-if="teamItems.length">
     <team-collection-item
       v-for="item in teamItems"
       :key="item.id"
@@ -8,11 +8,10 @@
       :name="item.name"
       :icon="item.icon"
     />
-    <!-- <team-collection-item
-      id="team01"
-      name="エンジニアリング"
-      icon="icon-engineering.png"
-    /> -->
+  </div>
+  <div v-else>
+    <p v-if="teamLoadState === 'COMPLETED'">チームデータがない</p>
+    <p v-if="teamLoadState === 'PROCESS'">ロード中</p>
   </div>
 </template>
 
@@ -23,9 +22,20 @@ export default {
   components: {
     TeamCollectionItem,
   },
+  methods: {
+    loadTeamItems() {
+      this.$store.dispatch('team/loadItems');
+    }
+  },
+  created() {
+    this.loadTeamItems();
+  },
   computed: {
     teamItems() {
-      return this.$store.getters['team/teamItems'];
+      return this.$store.getters['team/items'];
+    },
+    teamLoadState() {
+      return this.$store.getters['team/loadState'];
     }
   },
 }

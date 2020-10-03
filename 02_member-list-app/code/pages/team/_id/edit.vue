@@ -8,7 +8,7 @@
       ref="teamEditForm"
       :id="teamId"
     />
-    <button @click="getTeamEditFormValue">チームフォーム情報取得</button>
+    <button @click="updateTeamItem" class="button" :class="{'is-loading': teamIsBusy}">チーム編集</button>
   </div>
 </template>
 
@@ -32,14 +32,20 @@ export default {
     setTeamId() {
       this.teamId = this.$route.params.id;
     },
-    getTeamEditFormValue() {
-      const value = this.$refs.teamEditForm.getFormValues();
-      console.log(value);
+    async updateTeamItem() {
+      const formVal = this.$refs.teamEditForm.getFormValues();
+      const updateItem = await this.$store.dispatch('team/updateItem', formVal);
+      this.$router.push(`/team/${updateItem.id}`);
     },
   },
   created() {
     this.setTeamId();
   },
+  computed: {
+    teamIsBusy() {
+      return this.$store.getters['team/isBusy'];
+    }
+  }
 }
 </script>
 

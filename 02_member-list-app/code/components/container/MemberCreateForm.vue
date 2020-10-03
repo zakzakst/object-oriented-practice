@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     teamItems() {
-      return this.$store.getters['team/teamItems'];
+      return this.$store.getters['team/items'];
     }
   },
 }
