@@ -1,0 +1,55 @@
+<template>
+  <!-- チームの編集 -->
+  <div>
+    <div class="field">
+      <label class="label">チーム名</label>
+      <div class="control">
+        <input v-model="teamItem.name" class="input" type="text" placeholder="エンジニアリング">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">紹介文</label>
+      <div class="control">
+        <textarea v-model="teamItem.introduction" class="textarea" placeholder="システムの作成を行っています"></textarea>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">アイコン画像</label>
+      <div class="control">
+        <input v-model="teamItem.icon" class="input" type="text" placeholder="icon-engineering.png">
+      </div>
+      <template v-if="teamItem.icon">
+        <img :src="teamItem.icon" alt="">
+      </template>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    id: {type: String, required: true},
+  },
+  // data() {
+  //   return {
+  //     name: 'エンジニアリング',
+  //     introduction: 'テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。',
+  //     icon: 'icon-engineering.png',
+  //   }
+  // },
+  methods: {
+    getFormValues() {
+      return JSON.parse(JSON.stringify(this.teamItem));
+    }
+  },
+  computed: {
+    teamItem() {
+      const teamItemBase = this.$store.getters['team/findTeamItemById'](this.id);
+      return JSON.parse(JSON.stringify(teamItemBase));
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+</style>
