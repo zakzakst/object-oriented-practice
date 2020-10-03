@@ -4,7 +4,7 @@
       <action-btn-back />
       <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
       <action-btn-edit :to="`/team/${teamId}/edit`" />
-      <action-btn-delete @deleteEvent="actionDeleteEvent" />
+      <action-btn-delete @deleteEvent="deleteTeamItem" />
     </action-btns>
 
     <team-single-item
@@ -36,16 +36,17 @@ export default {
     setTeamId() {
       this.teamId = this.$route.params.id;
     },
-    actionDeleteEvent() {
-      console.log('delete');
-    }
+    async deleteTeamItem() {
+      const deleteItem = await this.$store.dispatch('team/deleteItem', this.teamId);
+      this.$router.push(`/team`);
+    },
   },
   created() {
     this.setTeamId();
   },
   computed: {
     teamItem() {
-      return this.$store.getters['team/findTeamItemById'](this.teamId);
+      return this.$store.getters['team/findItemById'](this.teamId);
     },
   },
 }

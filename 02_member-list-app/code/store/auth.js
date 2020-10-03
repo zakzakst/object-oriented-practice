@@ -58,7 +58,7 @@ export const actions = {
   },
 
   authCheck({commit}) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       // ユーザー認証状況チェック開始
       console.log('ユーザー認証状況チェック開始');
       commit('setIsBusy', true);

@@ -77,7 +77,7 @@ export default {
       return JSON.parse(JSON.stringify(memberItemBase));
     },
     teamItems() {
-      return this.$store.getters['team/teamItems'];
+      return this.$store.getters['team/items'];
     }
   }
 }

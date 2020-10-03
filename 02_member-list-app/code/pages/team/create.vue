@@ -7,7 +7,7 @@
     <team-create-form
       ref="teamCreateForm"
     />
-    <button @click="getTeamCreateFormValue">チーム作成フォーム情報取得</button>
+    <button @click="createTeamItem" class="button" :class="{'is-loading': teamIsBusy}">チーム作成</button>
   </div>
 </template>
 
@@ -23,11 +23,17 @@ export default {
     TeamCreateForm,
   },
   methods: {
-    getTeamCreateFormValue() {
-      const value = this.$refs.teamCreateForm.getFormValues();
-      console.log(value);
-    },
+    async createTeamItem() {
+      const formVal = this.$refs.teamCreateForm.getFormValues();
+      const teamId = await this.$store.dispatch('team/createItem', formVal);
+      this.$router.push(`/team/${teamId}`);
+    }
   },
+  computed: {
+    teamIsBusy() {
+      return this.$store.getters['team/isBusy'];
+    }
+  }
 }
 </script>
 
