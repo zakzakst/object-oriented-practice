@@ -1,6 +1,12 @@
 TODO:
+  ☐ firebaseの設定
+  ☐ ログイン認証
+  ☐ 各種リダイレクト
+  ☐ 登録データがない場合の表示（違うIDでアクセスしたさいの表示も余裕あったら考えたい）
+  ☐ ローディングアニメーション
   ☐ コンポーネントスタイル作成
-  ☐ 各種ページの作成
+  ☐ ページのスタイル作成
+  ☐ 404ページ
   ☐ フォーム画面から離れる場合のアラート（ナビゲーションガード）
 
 調べる・読む:
@@ -12,13 +18,14 @@ TODO:
   ☐ https://aloerina01.github.io/blog/2018-12-25-1
   ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
   ☐ https://qiita.com/syuji-higa/items/477b7ddc9cd946f5f28f
-  ☐ 戻るボタン（https://router.vuejs.org/ja/guide/essentials/navigation.html）
+  ✔ 戻るボタン（https://router.vuejs.org/ja/guide/essentials/navigation.html） @done(20-10-03 15:45)
 
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ 各種ページの作成 @done(20-10-03 15:39) @project(TODO)
   ✘ 前のページに戻るボタン、最初のページだったら（そもそも戻るページがないから）表示しない設定 @cancelled(20-10-03 15:33) @project(TODO)
   ✘ teamIcon.iconの変更に対応して画像が切り替わらない @cancelled(20-10-03 15:31) @project(TODO)
   ✔ $emit使うチャンスがあったら使いたい @done(20-10-03 11:23) @project(TODO)

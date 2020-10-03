@@ -18,6 +18,10 @@ export default {
     ]
   },
 
+  router: {
+    middleware: ['redirect']
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/sass/_normalize.scss',
