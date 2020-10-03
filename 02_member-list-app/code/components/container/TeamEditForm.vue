@@ -19,7 +19,7 @@
         <input v-model="teamItem.icon" class="input" type="text" placeholder="icon-engineering.png">
       </div>
       <template v-if="teamItem.icon">
-        <img :src="teamItem.icon" alt="">
+        <img :src="`/img/${teamItem.icon}`" alt="">
       </template>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
       const teamItemBase = this.$store.getters['team/findTeamItemById'](this.id);
       return JSON.parse(JSON.stringify(teamItemBase));
     }
-  }
+  },
 }
 </script>
 

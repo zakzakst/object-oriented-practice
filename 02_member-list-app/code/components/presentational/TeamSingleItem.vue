@@ -3,7 +3,7 @@
   <div>
     <p>{{ name }}</p>
     <p>{{ introduction }}</p>
-    <img :src="icon" :alt="name">
+    <img :src="`/img/${icon}`" :alt="name">
   </div>
 </template>
 

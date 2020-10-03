@@ -4,7 +4,7 @@
     <p>{{ name }}</p>
     <p v-if="onlineStatus">オンライン</p>
     <p>所属チーム</p>
-    <nuxt-link :to="teamId">
+    <nuxt-link :to="`/team/${teamId}`">
       <img :src="teamIcon" :alt="teamName">
       <p>{{ teamName }}</p>
     </nuxt-link>
