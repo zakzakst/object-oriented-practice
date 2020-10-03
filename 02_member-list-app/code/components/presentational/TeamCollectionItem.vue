@@ -1,7 +1,7 @@
 <template>
   <!-- チームのコレクションビュー要素 -->
-  <nuxt-link :to="id">
-    <img :src="icon" :alt="name">
+  <nuxt-link :to="`/team/${id}`">
+    <img :src="`/img/${icon}`" :alt="name">
     <p>{{ name }}</p>
   </nuxt-link>
 </template>

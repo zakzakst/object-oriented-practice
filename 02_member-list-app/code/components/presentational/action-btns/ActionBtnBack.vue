@@ -10,7 +10,6 @@
 export default {
   methods: {
     pageBack() {
-      console.log(this.$router);
       this.$router.go(-1);
     }
   }

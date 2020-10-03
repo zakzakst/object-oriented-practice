@@ -1,6 +1,6 @@
 <template>
   <!-- 社員のコレクションビュー要素 -->
-  <nuxt-link :to="id" class="media">
+  <nuxt-link :to="`/member/${id}`" class="media">
     <div class="media-left">
       <span class="icon is-large">
         <fa :icon="['fas', 'user']" class="fa-lg" />
