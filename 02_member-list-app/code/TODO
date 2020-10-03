@@ -1,6 +1,8 @@
 TODO:
   ☐ コンポーネントスタイル作成
-  ☐ $emit使うチャンスがあったら使いたい
+  ☐ 各種ページの作成
+  ☐ フォーム画面から離れる場合のアラート（ナビゲーションガード）
+  ☐ 前のページに戻るボタン、最初のページだったら（そもそも戻るページがないから）表示しない設定
 
 調べる・読む:
   ☐ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/#asyncdata-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89）
@@ -10,12 +12,17 @@ TODO:
   ☐ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b
   ☐ https://aloerina01.github.io/blog/2018-12-25-1
   ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
+  ☐ https://qiita.com/syuji-higa/items/477b7ddc9cd946f5f28f
+  ☐ 戻るボタン（https://router.vuejs.org/ja/guide/essentials/navigation.html）
 
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ $emit使うチャンスがあったら使いたい @done(20-10-03 11:23) @project(TODO)
+  ✔ ボタンコンポーネントの作成 @done(20-10-03 11:29) @project(TODO)
+  ✔ グローバルナビゲーションの作成 @done(20-10-03 12:05) @project(TODO)
   ✔ 編集用コンポーネント作成 @done(20-10-03 09:01) @project(TODO)
   ✔ 新規追加用コンポーネント作成 @done(20-10-03 09:01) @project(TODO)
   ✔ https://kic-yuuki.hatenablog.com/entry/2019/01/05/144610 @done(20-10-03 08:13) @project(調べる・読む)

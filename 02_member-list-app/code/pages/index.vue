@@ -77,6 +77,16 @@
       ref="teamCreateForm"
     />
     <button @click="getTeamCreateFormValue">チーム作成フォーム情報取得</button> -->
+
+    <!-- <action-btns>
+      <action-btn-back />
+      <action-btn-create to="/member/create" />
+      <action-btn-edit to="/member/edit" />
+      <action-btn-delete @deleteEvent="actionDeleteEvent" />
+      <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
+    </action-btns> -->
+
+    <!-- <global-nav /> -->
   </div>
 </template>
 
@@ -89,6 +99,16 @@ import MemberEditForm from '~/components/container/MemberEditForm';
 import TeamEditForm from '~/components/container/TeamEditForm';
 import MemberCreateForm from '~/components/container/MemberCreateForm';
 import TeamCreateForm from '~/components/container/TeamCreateForm';
+import GlobalNav from '~/components/presentational/GlobalNav';
+
+
+import ActionBtns from '~/components/presentational/action-btns/ActionBtns';
+import ActionBtnBack from '~/components/presentational/action-btns/ActionBtnBack';
+import ActionBtnCreate from '~/components/presentational/action-btns/ActionBtnCreate';
+import ActionBtnEdit from '~/components/presentational/action-btns/ActionBtnEdit';
+import ActionBtnDelete from '~/components/presentational/action-btns/ActionBtnDelete';
+import ActionBtnSignOut from '~/components/presentational/action-btns/ActionBtnSignOut';
+
 
 export default {
   data() {
@@ -104,6 +124,12 @@ export default {
     TeamSingleItem,
     MemberEditForm,
     MemberCreateForm,
+    ActionBtns,
+    ActionBtnBack,
+    ActionBtnCreate,
+    ActionBtnDelete,
+    ActionBtnSignOut,
+    GlobalNav,
   },
   methods: {
     getMemberEditFormValue() {
@@ -121,6 +147,12 @@ export default {
     getTeamCreateFormValue() {
       const value = this.$refs.teamCreateForm.getFormValues();
       console.log(value);
+    },
+    actionDeleteEvent() {
+      console.log('delete');
+    },
+    actionSignOutEvent() {
+      console.log('sign out');
     }
   },
   computed: {
