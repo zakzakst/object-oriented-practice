@@ -10,6 +10,7 @@
 <script>
 import GlobalNav from '~/components/presentational/GlobalNav';
 export default {
+  name: 'layout-default',
   components: {
     GlobalNav,
   },

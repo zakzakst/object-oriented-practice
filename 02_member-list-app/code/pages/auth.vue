@@ -3,7 +3,8 @@
     <auth-form
       ref="authForm"
     />
-    <button @click="getAuthFormValue">ユーザー認証フォーム情報取得</button>
+    <button @click="signUp" class="button" :class="{'is-loading': authIsBusy}">サインアップ</button>
+    <button @click="signIn" class="button" :class="{'is-loading': authIsBusy}">サインイン</button>
   </div>
 </template>
 
@@ -16,10 +17,21 @@ export default {
     AuthForm,
   },
   methods: {
-    getAuthFormValue() {
-      const value = this.$refs.authForm.getFormValues();
-      console.log(value);
+    async signIn() {
+      const formVal = this.$refs.authForm.getFormValues();
+      const uid = await this.$store.dispatch('auth/signIn', formVal);
+      this.$router.push('/');
     },
+    async signUp() {
+      const formVal = this.$refs.authForm.getFormValues();
+      const uid = await this.$store.dispatch('auth/signUp', formVal);
+      this.$router.push('/');
+    }
+  },
+  computed: {
+    authIsBusy() {
+      return this.$store.getters['auth/isBusy'];
+    }
   }
 }
 </script>
