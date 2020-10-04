@@ -13,12 +13,17 @@
       :introduction="teamItem.introduction"
       :icon="teamItem.icon"
     />
+
+    <member-collection
+      :teamFilter="teamId"
+    />
   </div>
 </template>
 
 <script>
 import actionBtnsMixin from '~/mixins/actionBtns';
 import TeamSingleItem from '~/components/presentational/TeamSingleItem';
+import MemberCollection from '~/components/container/MemberCollection';
 
 export default {
   data() {
@@ -31,6 +36,7 @@ export default {
   ],
   components: {
     TeamSingleItem,
+    MemberCollection,
   },
   methods: {
     setTeamId() {

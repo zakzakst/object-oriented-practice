@@ -4,7 +4,7 @@
       <action-btn-back />
       <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
       <action-btn-edit :to="`/member/${uid}/edit`" />
-      <action-btn-delete @deleteEvent="actionDeleteEvent" />
+      <action-btn-delete @deleteEvent="deleteMemberItem" />
     </action-btns>
 
     <member-single-item
@@ -41,8 +41,9 @@ export default {
     setUserId() {
       this.uid = this.$route.params.id;
     },
-    actionDeleteEvent() {
-      console.log('delete');
+    async deleteMemberItem() {
+      const deleteItem = await this.$store.dispatch('member/deleteItem', this.uid);
+      this.$router.push(`/member`);
     }
   },
   created() {
@@ -50,7 +51,7 @@ export default {
   },
   computed: {
     memberItem() {
-      return this.$store.getters['member/findMemberItemById'](this.uid);
+      return this.$store.getters['member/findItemById'](this.uid);
     },
   },
 }

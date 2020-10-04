@@ -7,7 +7,7 @@
     <member-create-form
       ref="memberCreateForm"
     />
-    <button @click="getMemberCreateFormValue">メンバー作成フォーム情報取得</button>
+    <button @click="createMemberItem" class="button" :class="{'is-loading': memberIsBusy}">メンバー作成</button>
   </div>
 </template>
 
@@ -23,11 +23,17 @@ export default {
     MemberCreateForm,
   },
   methods: {
-    getMemberCreateFormValue() {
-      const value = this.$refs.memberCreateForm.getFormValues();
-      console.log(value);
+    async createMemberItem() {
+      const formVal = this.$refs.memberCreateForm.getFormValues();
+      const uid = await this.$store.dispatch('member/createItem', formVal);
+      this.$router.push(`/member/${uid}`);
     },
   },
+  computed: {
+    memberIsBusy() {
+      return this.$store.getters['member/isBusy'];
+    }
+  }
 }
 </script>
 

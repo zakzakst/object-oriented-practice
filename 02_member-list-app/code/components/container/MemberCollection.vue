@@ -1,6 +1,6 @@
 <template>
   <!-- 社員のコレクションビュー -->
-  <div>
+  <div v-if="memberItems.length">
     <member-collection-item
       v-for="item in memberItems"
       :key="item.id"
@@ -9,12 +9,10 @@
       :onlineStatus="item.onlineStatus"
       :teamName="item.teamName"
     />
-    <!-- <member-collection-item
-      id="user01"
-      name="山田太郎"
-      onlineStatus
-      teamName="エンジニアリング"
-    /> -->
+  </div>
+  <div v-else>
+    <p v-if="memberLoadState === 'COMPLETED'">メンバーデータがない</p>
+    <p v-if="memberLoadState === 'PROCESS'">ロード中</p>
   </div>
 </template>
 
@@ -28,9 +26,20 @@ export default {
   components: {
     MemberCollectionItem,
   },
+  methods: {
+    loadMemberItems() {
+      this.$store.dispatch('member/loadItems');
+    }
+  },
+  created() {
+    this.loadMemberItems();
+  },
   computed: {
     memberItems() {
-      return this.$store.getters['member/filterMemberItemByTeamId'](this.teamFilter);
+      return this.$store.getters['member/filterItemsByTeamId'](this.teamFilter);
+    },
+    memberLoadState() {
+      return this.$store.getters['member/loadState'];
     }
   },
 }
