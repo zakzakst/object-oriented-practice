@@ -20,12 +20,18 @@ export default {
     async signIn() {
       const formVal = this.$refs.authForm.getFormValues();
       const uid = await this.$store.dispatch('auth/signIn', formVal);
+      // トップページに移動
       this.$router.push('/');
+      // 削除完了メッセージを表示
+      this.$store.dispatch('toast/show', 'サインインしました');
     },
     async signUp() {
       const formVal = this.$refs.authForm.getFormValues();
       const uid = await this.$store.dispatch('auth/signUp', formVal);
+      // トップページに移動
       this.$router.push('/');
+      // 削除完了メッセージを表示
+      this.$store.dispatch('toast/show', 'サインアップしました');
     }
   },
   computed: {

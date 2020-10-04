@@ -26,7 +26,13 @@ export default {
     async createMemberItem() {
       const formVal = this.$refs.memberCreateForm.getFormValues();
       const uid = await this.$store.dispatch('member/createItem', formVal);
-      this.$router.push(`/member/${uid}`);
+      // 作成した社員ページに移動
+      this.$router.push({
+        path: `/member/${uid}`,
+        query: {confirm: 'none'}
+      });
+      // 作成完了メッセージを表示
+      this.$store.dispatch('toast/show', '社員データを作成しました');
     },
   },
   computed: {
@@ -35,11 +41,19 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next) {
-    const confirm = window.confirm('ページを離れると、入力した内容が破棄されます。よろしいですか。')
-    if (confirm) {
+    // 作成実行後の遷移かチェック
+    if (to.query.confirm === 'none') {
+      // ■ 作成実行後の場合
       next();
     } else {
-      next(false);
+      // ■ 作成実行後でない場合
+      // 入力内容破棄の確認
+      const confirm = window.confirm('ページを離れると、入力した内容が破棄されます。よろしいですか。')
+      if (confirm) {
+        next();
+      } else {
+        next(false);
+      }
     }
   }
 }

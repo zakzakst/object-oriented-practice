@@ -73,7 +73,13 @@ export const actions = {
       item.id = snapshot.key;
       // teamIDからチームのデータを取得
       fireApp.database().ref(`${process.env.APP_DIR}/team/${item.teamId}`).once('value').then(teamSnapshot => {
-        const teamItem = teamSnapshot.val();
+        let teamItem = teamSnapshot.val();
+        if (!teamItem) {
+          teamItem = {
+            name: '',
+            icon: ''
+          };
+        }
         item.teamName = teamItem.name;
         item.teamIcon = teamItem.icon;
         // stateにデータをセット
