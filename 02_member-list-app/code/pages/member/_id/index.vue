@@ -45,7 +45,10 @@ export default {
       const confirm = window.confirm('こちらの社員データを削除します。よろしいですか。')
       if (confirm) {
         const deleteItem = await this.$store.dispatch('member/deleteItem', this.uid);
+        // 社員一覧ページに移動
         this.$router.push(`/member`);
+        // 削除完了メッセージを表示
+        this.$store.dispatch('toast/show', '社員データを削除しました');
       }
     }
   },

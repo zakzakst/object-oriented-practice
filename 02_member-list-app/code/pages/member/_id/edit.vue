@@ -35,7 +35,13 @@ export default {
     async updateMemberItem() {
       const formVal = this.$refs.memberEditForm.getFormValues();
       const updateItem = await this.$store.dispatch('member/updateItem', formVal);
-      this.$router.push(`/member/${updateItem.id}`);
+      // 編集した社員ページに移動
+      this.$router.push({
+        path: `/member/${updateItem.id}`,
+        query: {confirm: 'none'}
+      });
+      // 編集完了メッセージを表示
+      this.$store.dispatch('toast/show', '社員データを編集しました');
     },
   },
   created() {
@@ -47,11 +53,19 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next) {
-    const confirm = window.confirm('ページを離れると、入力した内容が破棄されます。よろしいですか。')
-    if (confirm) {
+    // 編集実行後の遷移かチェック
+    if (to.query.confirm === 'none') {
+      // ■ 編集実行後の場合
       next();
     } else {
-      next(false);
+      // ■ 編集実行後でない場合
+      // 入力内容破棄の確認
+      const confirm = window.confirm('ページを離れると、入力した内容が破棄されます。よろしいですか。')
+      if (confirm) {
+        next();
+      } else {
+        next(false);
+      }
     }
   }
 }

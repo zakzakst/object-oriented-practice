@@ -15,8 +15,12 @@ export default {
     ActionBtnSignOut,
   },
   methods: {
-    actionSignOutEvent() {
-      console.log('sign out');
+    async actionSignOutEvent() {
+      const signOut = await this.$store.dispatch('auth/signOut');
+      // ユーザー認証ページに移動
+      this.$router.push('/auth');
+      // サインアウト完了メッセージを表示
+      this.$store.dispatch('toast/show', 'サインアウトしました');
     }
   },
 }

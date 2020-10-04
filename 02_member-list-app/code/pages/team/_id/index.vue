@@ -46,7 +46,10 @@ export default {
       const confirm = window.confirm('こちらのチームデータを削除します。よろしいですか。')
       if (confirm) {
         const deleteItem = await this.$store.dispatch('team/deleteItem', this.teamId);
+        // チーム一覧ページに移動
         this.$router.push(`/team`);
+        // 削除完了メッセージを表示
+        this.$store.dispatch('toast/show', 'チームデータを削除しました');
       }
     },
   },
