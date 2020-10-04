@@ -38,26 +38,56 @@
         </div>
       </div>
     </div>
+    <div class="field">
+      <label class="label">オンラインステータス</label>
+      <div class="control">
+        <label class="checkbox">
+          <input v-model="memberItem.onlineStatus" type="checkbox">
+          オンライン中
+        </label>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import fireApp from '@/plugins/firebase';
+
 export default {
   data() {
     return {
-      memberItem: {},
+      memberItem: {
+        onlineStatus: false
+      },
+      teamItems: [],
     }
   },
   methods: {
+    async loadTeamItems() {
+      // firebaseでチームデータを取得
+      const teamSnapshot = await fireApp.database().ref(`${process.env.APP_DIR}/team`).once('value');
+      // データを成形
+      const teamSnapshotKeys = Object.keys(teamSnapshot.val());
+      const teamSnapshotFormatted = teamSnapshotKeys.map(key => {
+        const teamSnapshotItem = teamSnapshot.val()[key];
+        teamSnapshotItem.id = key;
+        return teamSnapshotItem;
+      });
+      // teamItemsを設定
+      this.teamItems = teamSnapshotFormatted;
+    },
     getFormValues() {
       return JSON.parse(JSON.stringify(this.memberItem));
     }
   },
-  computed: {
-    teamItems() {
-      return this.$store.getters['team/items'];
-    }
-  },
+  // computed: {
+  //   teamItems() {
+  //     return this.$store.getters['team/items'];
+  //   }
+  // },
+  mounted() {
+    this.loadTeamItems();
+  }
 }
 </script>
 

@@ -1,22 +1,14 @@
 TODO:
-  ☐ 社員データの処理
   ☐ 各種リダイレクト
-  ☐ 登録データがない場合の表示（違うIDでアクセスしたさいの表示も余裕あったら考えたい）
   ☐ ローディングアニメーション
   ☐ コンポーネントスタイル作成
   ☐ ページのスタイル作成
   ☐ 404ページ
   ☐ フォーム画面から離れる場合のアラート（ナビゲーションガード）
-  ☐ 追々「最初は○件のデータを読み込む」的なこともやりたい
-  ☐ 直接チームシングルページにアクセスした時にチームデータがロードされていないので、内容が表示されない
-  ☐ チームや社員の順番をコントロールするデータを持たせたほうがいいか
-  ☐ エラー時の表示
 
 調べる・読む:
-  ☐ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/#asyncdata-%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89）
   ☐ mapMutation非推奨, mapActions推奨
   ☐ mapState非推奨, mapGetters推奨
-  ☐ propsdown eventup推奨
   ☐ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b
   ☐ https://aloerina01.github.io/blog/2018-12-25-1
   ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
@@ -27,6 +19,15 @@ TODO:
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ 社員データの処理 @done(20-10-04 20:03) @project(TODO)
+  ✘ 登録データがない場合の表示（違うIDでアクセスしたさいの表示も余裕あったら考えたい） @cancelled(20-10-04 20:10) @project(TODO)
+  ✘ 追々「最初は○件のデータを読み込む」的なこともやりたい @cancelled(20-10-04 20:08) @project(TODO)
+  ✘ 直接チームシングルページにアクセスした時にチームデータがロードされていないので、内容が表示されない→今回は最初の読込時に「/team」にリダイレクトさせる対応 @cancelled(20-10-04 20:09) @project(TODO)
+  ✘ チームや社員の順番をコントロールするデータを持たせたほうがいいか @cancelled(20-10-04 20:09) @project(TODO)
+  ✘ エラー時の表示 @cancelled(20-10-04 20:09) @project(TODO)
+  ✔ チームデータの読み込み完了タイミングと社員データの読込タイミングの兼ね合い（ちょっと今回は妥協パターンになりそう）→今回はstoreの参照でなく対応（チームデータのstoreに更新があっても社員データのほうには反映されない。※再読み込みが必要） @done(20-10-04 18:54) @project(TODO)
+  ✔ NuxtのasyncData（https://ja.nuxtjs.org/guide/async-data/）→サーバー側の処理っぽいので、一旦スルー（https://reffect.co.jp/vue/nuxt-js-axios-asyncdata） @done(20-10-04 18:52) @project(調べる・読む)
+  ✔ propsdown eventup推奨 @done(20-10-04 18:53) @project(調べる・読む)
   ✔ firebaseの設定 @done(20-10-04 08:35) @project(TODO)
   ✔ ログイン認証 @done(20-10-03 19:36) @project(TODO)
   ✔ チームデータの処理 @done(20-10-04 08:35) @project(TODO)
@@ -69,6 +70,17 @@ Memo:
   ・「teamIcon.iconの変更に対応して画像が切り替わらない」は次回の課題。リアクティブデータに関する理解が多分たりない。
 
   ・「前のページに戻るボタン、最初のページだったら表示しない」は次回の課題。ちょっと調べたが出てこなかった。
+
+  ・gettersでfindやfilterした値を返す時、対応するデータがなかった場合に返すデフォルトの値を設定しておいたほうがいいと思った。
+
+  ・v-modelのチェックボックスでfalseの時に値が空で送信されてしまっていた。（リアクティブデータの理解やっぱ不足してる）
+
+  ・次回対応
+  チームや社員の順番をコントロールするデータ
+  最初は○件のデータを読み込む
+  直接シングルページにアクセスした時のデータ読込
+  エラー時の表示
+  登録データがない場合の表示
 
   ■■■ 参考 ■■■
   ・componentやstoreの設計方法

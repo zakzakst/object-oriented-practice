@@ -34,8 +34,6 @@
               :key="item.id"
               :value="item.id"
             >{{ item.name }}</option>
-            <!-- <option value="team01">エンジニアリング</option>
-            <option value="team02">デザイン</option> -->
           </select>
         </div>
       </div>
@@ -44,41 +42,46 @@
 </template>
 
 <script>
+import fireApp from '@/plugins/firebase';
+
 export default {
   props: {
     id: {type: String, required: true},
-    // name: {type: String, required: true},
-    // tel: {type: String, required: true},
-    // mail: {type: String, required: true},
-    // messenger: {type: String, required: true},
-    // teamId: {type: String, required: true},
   },
-  // data() {
-  //   return {
-  //     name: '山田太郎',
-  //     tel: '000-0000-0001',
-  //     mail: 'tyamada@mail.com',
-  //     messenger: '@yamadataro001',
-  //     teamId: 'team01',
-  //     // teamItems: [
-  //     //   {id: 'team01', name: 'エンジニアリング'},
-  //     //   {id: 'team02', name: 'デザイン'},
-  //     // ]
-  //   }
-  // },
+  data() {
+    return {
+      teamItems: [],
+    }
+  },
   methods: {
+    async loadTeamItems() {
+      // firebaseでチームデータを取得
+      const teamSnapshot = await fireApp.database().ref(`${process.env.APP_DIR}/team`).once('value');
+      // データを成形
+      const teamSnapshotKeys = Object.keys(teamSnapshot.val());
+      const teamSnapshotFormatted = teamSnapshotKeys.map(key => {
+        const teamSnapshotItem = teamSnapshot.val()[key];
+        teamSnapshotItem.id = key;
+        return teamSnapshotItem;
+      });
+      // teamItemsを設定
+      this.teamItems = teamSnapshotFormatted;
+    },
     getFormValues() {
       return JSON.parse(JSON.stringify(this.memberItem));
     }
   },
   computed: {
     memberItem() {
-      const memberItemBase = this.$store.getters['member/findMemberItemById'](this.id);
+      const memberItemBase = this.$store.getters['member/findItemById'](this.id);
       return JSON.parse(JSON.stringify(memberItemBase));
     },
-    teamItems() {
-      return this.$store.getters['team/items'];
-    }
+    // teamItems() {
+    //   return this.$store.getters['team/items'];
+    // }
+  },
+  mounted() {
+    this.loadTeamItems();
   }
 }
 </script>

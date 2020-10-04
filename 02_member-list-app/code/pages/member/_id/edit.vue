@@ -8,7 +8,7 @@
       ref="memberEditForm"
       :id="uid"
     />
-    <button @click="getMemberEditFormValue">メンバーフォーム情報取得</button>
+    <button @click="updateMemberItem" class="button" :class="{'is-loading': memberIsBusy}">メンバー編集</button>
   </div>
 </template>
 
@@ -32,14 +32,20 @@ export default {
     setUserId() {
       this.uid = this.$route.params.id;
     },
-    getMemberEditFormValue() {
-      const value = this.$refs.memberEditForm.getFormValues();
-      console.log(value);
+    async updateMemberItem() {
+      const formVal = this.$refs.memberEditForm.getFormValues();
+      const updateItem = await this.$store.dispatch('member/updateItem', formVal);
+      this.$router.push(`/member/${updateItem.id}`);
     },
   },
   created() {
     this.setUserId();
   },
+  computed: {
+    memberIsBusy() {
+      return this.$store.getters['member/isBusy'];
+    }
+  }
 }
 </script>
 

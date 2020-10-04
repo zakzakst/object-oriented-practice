@@ -134,7 +134,18 @@ export const getters = {
     return state.items;
   },
   findItemById: (state) => (id) => {
-    return state.items.find(item => item.id === id);
+    let result = state.items.find(item => item.id === id);
+    if (result === undefined) {
+      // ■ IDに対応するitemがない場合
+      // デフォルトの値を返す
+      result = {
+        id: '',
+        name: '',
+        introduction: '',
+        icon: '',
+      }
+    }
+    return result;
   },
   isBusy(state) {
     return state.isBusy;

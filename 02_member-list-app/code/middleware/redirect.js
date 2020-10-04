@@ -10,4 +10,6 @@ export default async ({ store, route, redirect }) => {
       redirect('/auth');
     }
   }
+
+  // #TODO: 最初の読み込みで、直接シングルビューにアクセスした時にコレクションビューにリダイレクト
 }
