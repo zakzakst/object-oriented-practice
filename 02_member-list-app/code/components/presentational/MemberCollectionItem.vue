@@ -26,14 +26,6 @@ export default {
     onlineStatus: {type: Boolean, required: true},
     teamName: {type: String, required: true},
   },
-  // data() {
-  //   return {
-  //     id: 'user01',
-  //     name: '山田太郎',
-  //     teamName: 'エンジニアリング',
-  //     onlineStatus: true,
-  //   }
-  // }
 }
 </script>
 

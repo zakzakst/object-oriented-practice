@@ -42,8 +42,11 @@ export default {
       this.uid = this.$route.params.id;
     },
     async deleteMemberItem() {
-      const deleteItem = await this.$store.dispatch('member/deleteItem', this.uid);
-      this.$router.push(`/member`);
+      const confirm = window.confirm('こちらの社員データを削除します。よろしいですか。')
+      if (confirm) {
+        const deleteItem = await this.$store.dispatch('member/deleteItem', this.uid);
+        this.$router.push(`/member`);
+      }
     }
   },
   created() {

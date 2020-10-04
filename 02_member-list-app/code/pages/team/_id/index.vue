@@ -43,8 +43,11 @@ export default {
       this.teamId = this.$route.params.id;
     },
     async deleteTeamItem() {
-      const deleteItem = await this.$store.dispatch('team/deleteItem', this.teamId);
-      this.$router.push(`/team`);
+      const confirm = window.confirm('こちらのチームデータを削除します。よろしいですか。')
+      if (confirm) {
+        const deleteItem = await this.$store.dispatch('team/deleteItem', this.teamId);
+        this.$router.push(`/team`);
+      }
     },
   },
   created() {

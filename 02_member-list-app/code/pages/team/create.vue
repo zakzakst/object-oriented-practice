@@ -33,6 +33,14 @@ export default {
     teamIsBusy() {
       return this.$store.getters['team/isBusy'];
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    const confirm = window.confirm('ページを離れると、入力した内容が破棄されます。よろしいですか。')
+    if (confirm) {
+      next();
+    } else {
+      next(false);
+    }
   }
 }
 </script>

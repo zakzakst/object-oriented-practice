@@ -13,13 +13,6 @@ export default {
     name: {type: String, required: true},
     icon: {type: String, required: true},
   },
-  // data() {
-  //   return {
-  //     id: 'team01',
-  //     name: 'エンジニアリング',
-  //     icon: 'icon-engineering.png',
-  //   }
-  // }
 }
 </script>
 

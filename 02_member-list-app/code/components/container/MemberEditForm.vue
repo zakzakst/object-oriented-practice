@@ -76,9 +76,6 @@ export default {
       const memberItemBase = this.$store.getters['member/findItemById'](this.id);
       return JSON.parse(JSON.stringify(memberItemBase));
     },
-    // teamItems() {
-    //   return this.$store.getters['team/items'];
-    // }
   },
   mounted() {
     this.loadTeamItems();
