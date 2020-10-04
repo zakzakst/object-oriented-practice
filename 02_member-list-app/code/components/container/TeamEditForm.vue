@@ -30,13 +30,6 @@ export default {
   props: {
     id: {type: String, required: true},
   },
-  // data() {
-  //   return {
-  //     name: 'エンジニアリング',
-  //     introduction: 'テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。',
-  //     icon: 'icon-engineering.png',
-  //   }
-  // },
   methods: {
     getFormValues() {
       return JSON.parse(JSON.stringify(this.teamItem));

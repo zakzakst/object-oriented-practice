@@ -1,10 +1,7 @@
 TODO:
-  ☐ 各種リダイレクト
-  ☐ ローディングアニメーション
   ☐ コンポーネントスタイル作成
   ☐ ページのスタイル作成
-  ☐ 404ページ
-  ☐ フォーム画面から離れる場合のアラート（ナビゲーションガード）
+  ☐ トースト表示
 
 調べる・読む:
   ☐ mapMutation非推奨, mapActions推奨
@@ -19,6 +16,11 @@ TODO:
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ 各種リダイレクト @done(20-10-04 21:58) @project(TODO)
+  ✔ ローディングアニメーション @done(20-10-04 20:57) @project(TODO)
+  ✔ ページ削除の確認 @done(20-10-04 21:04) @project(TODO)
+  ✔ 404ページ @done(20-10-04 20:25) @project(TODO)
+  ✔ フォーム画面から離れる場合のアラート（ナビゲーションガード） @done(20-10-04 20:57) @project(TODO)
   ✔ 社員データの処理 @done(20-10-04 20:03) @project(TODO)
   ✘ 登録データがない場合の表示（違うIDでアクセスしたさいの表示も余裕あったら考えたい） @cancelled(20-10-04 20:10) @project(TODO)
   ✘ 追々「最初は○件のデータを読み込む」的なこともやりたい @cancelled(20-10-04 20:08) @project(TODO)
@@ -94,3 +96,10 @@ Memo:
 
   ・rootStateはmutations内では使えず、gettersとactionsの中でしか使えない。
   https://qiita.com/hisashi_matsui/items/7cd872186a2b16e37ae1
+
+  ・404ページの実装
+  https://qiita.com/yoshinbo/items/d149560c409503b07758
+
+  ・ナビゲーションガードでリダイレクトさせようとしたけど上手くいかなかった件（next(/team)使って移動させようとしたら、「Cannot read property 'scrollToTop' of undefined」と出た）
+  https://router.vuejs.org/ja/guide/advanced/navigation-guards.html
+  https://qiita.com/yotahada-nus3/items/e9832cd1213e7bd185e5

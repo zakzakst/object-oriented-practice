@@ -80,11 +80,6 @@ export default {
       return JSON.parse(JSON.stringify(this.memberItem));
     }
   },
-  // computed: {
-  //   teamItems() {
-  //     return this.$store.getters['team/items'];
-  //   }
-  // },
   mounted() {
     this.loadTeamItems();
   }

@@ -14,13 +14,6 @@ export default {
     introduction: {type: String, required: true},
     icon: {type: String, required: true},
   },
-  // data() {
-  //   return {
-  //     name: 'エンジニアリング',
-  //     introduction: 'テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。',
-  //     icon: 'icon-engineering.png',
-  //   }
-  // }
 }
 </script>
 
