@@ -1,13 +1,21 @@
 <template>
   <div>
     <action-btns>
-      <action-btn-back />
+      <template #left>
+        <action-btn-back />
+      </template>
     </action-btns>
 
-    <member-create-form
-      ref="memberCreateForm"
-    />
-    <button @click="createMemberItem" class="button" :class="{'is-loading': memberIsBusy}">メンバー作成</button>
+    <div class="section">
+      <div class="columns is-centered">
+        <div class="column is-two-thirds-tablet is-half-desktop">
+          <member-create-form
+            ref="memberCreateForm"
+          />
+          <button @click="createMemberItem" class="button is-link mt-6" :class="{'is-loading': memberIsBusy}">メンバー作成</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

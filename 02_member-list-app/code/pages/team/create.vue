@@ -1,13 +1,21 @@
 <template>
   <div>
     <action-btns>
-      <action-btn-back />
+      <template #left>
+        <action-btn-back />
+      </template>
     </action-btns>
 
-    <team-create-form
-      ref="teamCreateForm"
-    />
-    <button @click="createTeamItem" class="button" :class="{'is-loading': teamIsBusy}">チーム作成</button>
+    <div class="section">
+      <div class="columns is-centered">
+        <div class="column is-two-thirds-tablet is-half-desktop">
+          <team-create-form
+            ref="teamCreateForm"
+          />
+          <button @click="createTeamItem" class="button is-link mt-6" :class="{'is-loading': teamIsBusy}">チーム作成</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

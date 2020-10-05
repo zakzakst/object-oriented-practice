@@ -12,6 +12,12 @@ export default async ({ store, route, redirect, app }) => {
     }
   }
 
+  // ルート・ユーザー認証ページのリダイレクト
+  if (path === '/') {
+    redirect('/member');
+    return;
+  }
+
   // 再読み込み時のページをチェック
   const fromPage = app.context.from.name;
   const currentPage = route.name;
