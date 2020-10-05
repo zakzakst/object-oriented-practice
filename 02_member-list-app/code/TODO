@@ -1,11 +1,7 @@
-TODO:
-  ☐ フォームのバリデーション作成
-
-最後に対応:
-  ☐ mixinsにまとめるスクリプトあるか検討
-  ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
-
 Archive:
+  ✘ フォームのバリデーション作成 @cancelled(20-10-06 05:59) @project(TODO)
+  ✔ mixinsにまとめるスクリプトあるか検討 @done(20-10-06 06:38) @project(最後に対応)
+  ✔ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく @done(20-10-06 06:38) @project(最後に対応)
   ✔ コンポーネントスタイル作成 @done(20-10-06 04:03) @project(TODO)
   ✔ ページのスタイル作成 @done(20-10-06 04:03) @project(TODO)
   ✔ mapMutation非推奨, mapActions推奨 @done(20-10-06 02:35) @project(調べる・読む)
@@ -82,6 +78,8 @@ Memo:
 
   ・FAアイコンにクラス「fa-spin」をつけると回転する
 
+  ・envの「APP_DIR」は「/（スラッシュ）」つけて登録したほうがよかったかもしれない
+
   ・次回対応
   チームや社員の順番をコントロールするデータ
   最初は○件のデータを読み込む
@@ -93,6 +91,9 @@ Memo:
   プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
   watchプロパティーのimmediate: true
   VueのerrorCapturedフック
+  フォームのバリデーション作成（vee-validateと「input type=text」のコンポーネントをバリデーション含めて作って、複数配置）
+  ビルドの容量制限の回避
+  envの「APP_DIR」（firebaseのルートと分ける）
 
   ■■■ 参考 ■■■
   ・componentやstoreの設計方法
@@ -116,3 +117,6 @@ Memo:
 
   ・mapStateの使いどころ
   https://reffect.co.jp/vue/vue-js-vuex-map-helper（「$this.$store.stateまでは共通の文字列なので複数のコンポーネントでthis.$store.state.XXXXを記述したい場合に効率的ではありません。そのためVuexにはmapStateヘルパーという機能が準備されており、mapStateを使うことで短縮して記述することができます。」）
+
+  ・process.envのディレクトリをルートパス、画像パスに利用する
+  https://qiita.com/amishiro/items/9d7ca6b239f604a40424
