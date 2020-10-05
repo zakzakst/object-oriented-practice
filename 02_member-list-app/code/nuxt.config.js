@@ -19,6 +19,7 @@ export default {
   },
 
   router: {
+    base: process.env.APP_DIR !== '' ? `/${process.env.APP_DIR}` : '',
     middleware: ['redirect']
   },
 
@@ -53,6 +54,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config) {
+      config.performance.maxAssetSize = 10000000;
+      config.performance.maxEntrypointSize = 10000000;
+    },
   },
 
   styleResources: {

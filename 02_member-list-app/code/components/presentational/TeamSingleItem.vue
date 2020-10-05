@@ -2,7 +2,7 @@
   <!-- チームのシングルビュー要素 -->
   <div class="has-text-centered mb-5">
     <div class="team-single-item__img">
-      <img :src="`/img/${icon}`" :alt="name">
+      <img :src="`${appDir}/img/${icon}`" :alt="name">
     </div>
     <h1 class="title is-4 mb-2">{{ name }}</h1>
     <p>{{ introduction }}</p>
@@ -16,6 +16,11 @@ export default {
     introduction: {type: String, required: true},
     icon: {type: String, required: true},
   },
+  computed: {
+    appDir() {
+      return process.env.APP_DIR !== '' ? `/${process.env.APP_DIR}` : '';
+    }
+  }
 }
 </script>
 

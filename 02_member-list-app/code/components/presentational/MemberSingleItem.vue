@@ -3,7 +3,7 @@
   <div>
     <div class="has-text-centered mb-5">
       <figure class="member-single__img image is-128x128" :class="{'is-online': onlineStatus}">
-        <img src="/img/person.svg">
+        <img :src="`${appDir}/img/person.svg`">
       </figure>
       <h1 class="title mb-1">{{ name }}</h1>
       <p v-if="onlineStatus">オンライン</p>
@@ -13,7 +13,7 @@
       <nuxt-link :to="`/team/${teamId}`" class="member-single__team media">
         <figure class="member-single__team-img media-left">
           <div class="image is-32x32">
-            <img :src="`/img/${teamIcon}`" :alt="teamName">
+            <img :src="`${appDir}/img/${teamIcon}`" :alt="teamName">
           </div>
         </figure>
         <p class="media-content">{{ teamName }}</p>
@@ -46,6 +46,11 @@ export default {
     teamName: {type: String, required: true},
     teamIcon: {type: String, required: true},
   },
+  computed: {
+    appDir() {
+      return process.env.APP_DIR !== '' ? `/${process.env.APP_DIR}` : '';
+    }
+  }
 }
 </script>
 

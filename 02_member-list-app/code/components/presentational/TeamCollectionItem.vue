@@ -2,7 +2,7 @@
   <!-- チームのコレクションビュー要素 -->
   <nuxt-link :to="`/team/${id}`" class="team-collection-item has-text-centered">
     <div class="team-collection-item__img">
-      <img :src="`/img/${icon}`" :alt="name">
+      <img :src="`${appDir}/img/${icon}`" :alt="name">
     </div>
     <p>{{ name }}</p>
   </nuxt-link>
@@ -15,6 +15,11 @@ export default {
     name: {type: String, required: true},
     icon: {type: String, required: true},
   },
+  computed: {
+    appDir() {
+      return process.env.APP_DIR !== '' ? `/${process.env.APP_DIR}` : '';
+    }
+  }
 }
 </script>
 
