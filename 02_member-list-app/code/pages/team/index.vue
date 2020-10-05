@@ -1,9 +1,13 @@
 <template>
   <div>
     <action-btns>
-      <action-btn-back />
-      <action-btn-create to="/team/create" />
-      <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
+      <template #left>
+        <action-btn-back />
+        <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
+      </template>
+      <template #right>
+        <action-btn-create to="/team/create" />
+      </template>
     </action-btns>
 
     <div class="section">

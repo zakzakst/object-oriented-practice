@@ -1,10 +1,14 @@
 <template>
   <div>
     <action-btns>
-      <action-btn-back />
-      <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
-      <action-btn-edit :to="`/team/${teamId}/edit`" />
-      <action-btn-delete @deleteEvent="deleteTeamItem" />
+      <template #left>
+        <action-btn-back />
+        <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
+      </template>
+      <template #right>
+        <action-btn-edit :to="`/team/${teamId}/edit`" />
+        <action-btn-delete @deleteEvent="deleteTeamItem" />
+      </template>
     </action-btns>
 
     <div class="section">

@@ -13,17 +13,21 @@
     </div>
   </div>
   <div v-else>
-    <p v-if="teamLoadState === 'COMPLETED'">チームデータがない</p>
-    <p v-if="teamLoadState === 'PROCESS'">ロード中</p>
+    <p v-if="teamLoadState === 'COMPLETED'" class="has-text-centered">現在登録されているチームはありません</p>
+    <p v-if="teamLoadState === 'PROCESS'" class="has-text-centered">
+      <loading-icon />
+    </p>
   </div>
 </template>
 
 <script>
 import TeamCollectionItem from '~/components/presentational/TeamCollectionItem';
+import LoadingIcon from '~/components/presentational/LoadingIcon';
 
 export default {
   components: {
     TeamCollectionItem,
+    LoadingIcon,
   },
   methods: {
     loadTeamItems() {

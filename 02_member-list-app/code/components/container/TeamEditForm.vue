@@ -18,9 +18,6 @@
       <div class="control">
         <input v-model="teamItem.icon" class="input" type="text" placeholder="icon-engineering.png">
       </div>
-      <template v-if="teamItem.icon">
-        <img :src="`/img/${teamItem.icon}`" alt="">
-      </template>
     </div>
   </div>
 </template>

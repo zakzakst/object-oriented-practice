@@ -1,12 +1,13 @@
 TODO:
-  ☐ コンポーネントスタイル作成
-  ☐ ページのスタイル作成
+  ☐ フォームのバリデーション作成
 
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ コンポーネントスタイル作成 @done(20-10-06 04:03) @project(TODO)
+  ✔ ページのスタイル作成 @done(20-10-06 04:03) @project(TODO)
   ✔ mapMutation非推奨, mapActions推奨 @done(20-10-06 02:35) @project(調べる・読む)
   ✔ mapState非推奨, mapGetters推奨 @done(20-10-06 02:35) @project(調べる・読む)
   ✔ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b @done(20-10-06 02:35) @project(調べる・読む)
@@ -78,6 +79,8 @@ Memo:
   ・gettersでfindやfilterした値を返す時、対応するデータがなかった場合に返すデフォルトの値を設定しておいたほうがいいと思った。
 
   ・v-modelのチェックボックスでfalseの時に値が空で送信されてしまっていた。（リアクティブデータの理解やっぱ不足してる）
+
+  ・FAアイコンにクラス「fa-spin」をつけると回転する
 
   ・次回対応
   チームや社員の順番をコントロールするデータ

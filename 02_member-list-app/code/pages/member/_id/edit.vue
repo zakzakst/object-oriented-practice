@@ -1,14 +1,22 @@
 <template>
   <div>
     <action-btns>
-      <action-btn-back />
+      <template #left>
+        <action-btn-back />
+      </template>
     </action-btns>
 
-    <member-edit-form
-      ref="memberEditForm"
-      :id="uid"
-    />
-    <button @click="updateMemberItem" class="button" :class="{'is-loading': memberIsBusy}">メンバー編集</button>
+    <div class="section">
+      <div class="columns is-centered">
+        <div class="column is-two-thirds-tablet is-half-desktop">
+          <member-edit-form
+            ref="memberEditForm"
+            :id="uid"
+          />
+          <button @click="updateMemberItem" class="button is-link mt-6" :class="{'is-loading': memberIsBusy}">メンバー編集</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

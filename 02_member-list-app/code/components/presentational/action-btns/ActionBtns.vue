@@ -1,6 +1,11 @@
 <template>
-  <div class="action-btns buttons">
-    <slot></slot>
+  <div class="action-btns buttons ml-5 mr-5">
+    <div class="action-btns__item">
+      <slot name="left" />
+    </div>
+    <div class="action-btns__item">
+      <slot name="right" />
+    </div>
   </div>
 </template>
 
@@ -11,8 +16,9 @@ export default {
 
 <style lang="scss">
 .action-btns {
-  position: fixed;
-  top: 0;
-  right: 0;
+  display: flex;
+}
+.action-btns__item:last-child {
+  margin-left: auto;
 }
 </style>
