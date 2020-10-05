@@ -7,17 +7,23 @@
       <action-btn-delete @deleteEvent="deleteMemberItem" />
     </action-btns>
 
-    <member-single-item
-      v-if="memberItem"
-      :name="memberItem.name"
-      :tel="memberItem.tel"
-      :mail="memberItem.mail"
-      :messenger="memberItem.messenger"
-      :onlineStatus="memberItem.onlineStatus"
-      :teamId="memberItem.teamId"
-      :teamName="memberItem.teamName"
-      :teamIcon="memberItem.teamIcon"
-    />
+    <div class="section">
+      <div class="columns is-centered">
+        <div class="column is-two-thirds-tablet is-half-desktop">
+          <member-single-item
+            v-if="memberItem"
+            :name="memberItem.name"
+            :tel="memberItem.tel"
+            :mail="memberItem.mail"
+            :messenger="memberItem.messenger"
+            :onlineStatus="memberItem.onlineStatus"
+            :teamId="memberItem.teamId"
+            :teamName="memberItem.teamName"
+            :teamIcon="memberItem.teamIcon"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

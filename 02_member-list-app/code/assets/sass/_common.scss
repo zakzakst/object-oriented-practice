@@ -1,6 +1,6 @@
 // ページトランジション
 .page-enter-active, .page-leave-active {
-  transition: opacity $transition-default;
+  transition: opacity $transition--default;
 }
 .page-enter, .page-leave-active {
   opacity: 0;

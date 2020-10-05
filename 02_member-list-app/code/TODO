@@ -2,19 +2,17 @@ TODO:
   ☐ コンポーネントスタイル作成
   ☐ ページのスタイル作成
 
-調べる・読む:
-  ☐ mapMutation非推奨, mapActions推奨
-  ☐ mapState非推奨, mapGetters推奨
-  ☐ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b
-  ☐ https://aloerina01.github.io/blog/2018-12-25-1
-  ☐ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
-  ☐ https://qiita.com/syuji-higa/items/477b7ddc9cd946f5f28f
-
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
 Archive:
+  ✔ mapMutation非推奨, mapActions推奨 @done(20-10-06 02:35) @project(調べる・読む)
+  ✔ mapState非推奨, mapGetters推奨 @done(20-10-06 02:35) @project(調べる・読む)
+  ✔ https://qiita.com/HayatoKamono/items/5958d8648007adf6881b @done(20-10-06 02:35) @project(調べる・読む)
+  ✔ https://aloerina01.github.io/blog/2018-12-25-1 @done(20-10-06 02:35) @project(調べる・読む)
+  ✔ プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate） @done(20-10-06 02:35) @project(調べる・読む)
+  ✔ https://qiita.com/syuji-higa/items/477b7ddc9cd946f5f28f @done(20-10-06 02:35) @project(調べる・読む)
   ✔ ページトランジションの設定 @done(20-10-05 01:07) @project(TODO)
   ✔ トースト表示 @done(20-10-05 00:44) @project(TODO)
   ✔ createとeditの実行の時にも「入力内容が消える」メッセージが表示されてしまう→実行後のページ遷移にクエリを持たせて条件分岐させる @done(20-10-05 01:33) @project(TODO)
@@ -88,6 +86,10 @@ Memo:
   エラー時の表示
   登録データがない場合の表示
   関連データが削除された場合の表示
+  チームごとの色（テーマカラー）設定（※設定したある色の配列から自動で選ばれる）
+  プラグインを用いてlocalstrageに保存（https://github.com/robinvdvleuten/vuex-persistedstate）
+  watchプロパティーのimmediate: true
+  VueのerrorCapturedフック
 
   ■■■ 参考 ■■■
   ・componentやstoreの設計方法
@@ -108,3 +110,6 @@ Memo:
   ・ナビゲーションガードでリダイレクトさせようとしたけど上手くいかなかった件（next(/team)使って移動させようとしたら、「Cannot read property 'scrollToTop' of undefined」と出た）
   https://router.vuejs.org/ja/guide/advanced/navigation-guards.html
   https://qiita.com/yotahada-nus3/items/e9832cd1213e7bd185e5
+
+  ・mapStateの使いどころ
+  https://reffect.co.jp/vue/vue-js-vuex-map-helper（「$this.$store.stateまでは共通の文字列なので複数のコンポーネントでthis.$store.state.XXXXを記述したい場合に効率的ではありません。そのためVuexにはmapStateヘルパーという機能が準備されており、mapStateを使うことで短縮して記述することができます。」）

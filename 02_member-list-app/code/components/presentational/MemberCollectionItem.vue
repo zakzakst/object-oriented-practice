@@ -1,6 +1,6 @@
 <template>
   <!-- 社員のコレクションビュー要素 -->
-  <nuxt-link :to="`/member/${id}`" class="media">
+  <nuxt-link :to="`/member/${id}`" class="member-collection-item media">
     <div class="media-left">
       <span class="icon is-large">
         <fa :icon="['fas', 'user']" class="fa-lg" />
@@ -30,4 +30,11 @@ export default {
 </script>
 
 <style lang="scss">
+.member-collection-item {
+  color: $color-text--default;
+  transition: color $transition--default;
+  &:hover {
+    color: $color-text--link;
+  }
+}
 </style>

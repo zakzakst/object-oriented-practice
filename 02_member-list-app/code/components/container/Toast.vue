@@ -40,7 +40,7 @@ export default {
   max-width: 480px;
   bottom: -1px;
   transform: translateY(100%);
-  transition: all $transition-default;
+  transition: all $transition--default;
   &.toast--active {
     bottom: 8px;
     transform: translateY(0);

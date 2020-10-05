@@ -1,13 +1,16 @@
 <template>
   <!-- チームのコレクションビュー -->
-  <div v-if="teamItems.length">
-    <team-collection-item
+  <div v-if="teamItems.length" class="columns is-mobile is-multiline">
+    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop"
       v-for="item in teamItems"
       :key="item.id"
-      :id="item.id"
-      :name="item.name"
-      :icon="item.icon"
-    />
+    >
+      <team-collection-item
+        :id="item.id"
+        :name="item.name"
+        :icon="item.icon"
+      />
+    </div>
   </div>
   <div v-else>
     <p v-if="teamLoadState === 'COMPLETED'">チームデータがない</p>

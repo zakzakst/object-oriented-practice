@@ -6,7 +6,13 @@
       <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
     </action-btns>
 
-    <member-collection />
+    <div class="section">
+      <div class="columns is-centered">
+        <div class="column is-two-thirds-tablet is-half-desktop">
+          <member-collection />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

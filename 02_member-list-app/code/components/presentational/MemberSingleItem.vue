@@ -1,19 +1,36 @@
 <template>
   <!-- 社員のシングルビュー要素 -->
   <div>
-    <p>{{ name }}</p>
-    <p v-if="onlineStatus">オンライン</p>
-    <p>所属チーム</p>
-    <nuxt-link :to="`/team/${teamId}`">
-      <img :src="`/img/${teamIcon}`" :alt="teamName">
-      <p>{{ teamName }}</p>
-    </nuxt-link>
-    <p>電話番号</p>
-    <p>{{ tel }}</p>
-    <p>メールアドレス</p>
-    <p>{{ mail }}</p>
-    <p>メッセンジャー</p>
-    <p>{{ messenger }}</p>
+    <div class="has-text-centered mb-5">
+      <figure class="member-single__img image is-128x128" :class="{'is-online': onlineStatus}">
+        <img src="/img/person.svg">
+      </figure>
+      <h1 class="title mb-1">{{ name }}</h1>
+      <p v-if="onlineStatus">オンライン</p>
+    </div>
+    <div class="mb-3">
+      <h2 class="title is-5 mb-2">所属チーム</h2>
+      <nuxt-link :to="`/team/${teamId}`" class="member-single__team media">
+        <figure class="member-single__team-img media-left">
+          <div class="image is-32x32">
+            <img :src="`/img/${teamIcon}`" :alt="teamName">
+          </div>
+        </figure>
+        <p class="media-content">{{ teamName }}</p>
+      </nuxt-link>
+    </div>
+    <div class="mb-3">
+      <h2 class="title is-5 mb-1">電話番号</h2>
+      <p>{{ tel }}</p>
+    </div>
+    <div class="mb-3">
+      <h2 class="title is-5 mb-1">メールアドレス</h2>
+      <p>{{ mail }}</p>
+    </div>
+    <div class="mb-3">
+      <h2 class="title is-5 mb-1">メッセンジャー</h2>
+      <p>{{ messenger }}</p>
+    </div>
   </div>
 </template>
 
@@ -33,4 +50,28 @@ export default {
 </script>
 
 <style lang="scss">
+.member-single__img {
+  position: relative;
+  margin: 0 auto 1rem;
+  &.is-online::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    bottom: 0;
+    right: 8px;
+    background: $color-state--online;
+    border: 4px solid #fff;
+    border-radius: 50%;
+  }
+}
+.member-single__team {
+  align-items: center;
+}
+.member-single__team-img {
+  padding: 12px;
+  background: $color-icon-bg;
+  border-radius: 50%;
+}
 </style>

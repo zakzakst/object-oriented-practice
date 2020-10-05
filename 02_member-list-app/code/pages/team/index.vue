@@ -6,7 +6,9 @@
       <action-btn-sign-out @signOutEvent="actionSignOutEvent" />
     </action-btns>
 
-    <team-collection />
+    <div class="section">
+      <team-collection />
+    </div>
   </div>
 </template>
 

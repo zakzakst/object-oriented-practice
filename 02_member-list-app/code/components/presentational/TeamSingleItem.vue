@@ -1,9 +1,11 @@
 <template>
   <!-- チームのシングルビュー要素 -->
-  <div>
-    <p>{{ name }}</p>
+  <div class="has-text-centered mb-5">
+    <div class="team-single-item__img">
+      <img :src="`/img/${icon}`" :alt="name">
+    </div>
+    <h1 class="title is-4 mb-2">{{ name }}</h1>
     <p>{{ introduction }}</p>
-    <img :src="`/img/${icon}`" :alt="name">
   </div>
 </template>
 
@@ -18,4 +20,12 @@ export default {
 </script>
 
 <style lang="scss">
+.team-single-item__img {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 1rem;
+  padding: 32px;
+  background: $color-icon-bg;
+  border-radius: 50%;
+}
 </style>

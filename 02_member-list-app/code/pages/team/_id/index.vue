@@ -7,16 +7,24 @@
       <action-btn-delete @deleteEvent="deleteTeamItem" />
     </action-btns>
 
-    <team-single-item
-      v-if="teamItem"
-      :name="teamItem.name"
-      :introduction="teamItem.introduction"
-      :icon="teamItem.icon"
-    />
+    <div class="section">
+      <div class="columns">
+        <div class="column is-one-third-tablet">
+          <team-single-item
+            v-if="teamItem"
+            :name="teamItem.name"
+            :introduction="teamItem.introduction"
+            :icon="teamItem.icon"
+          />
+        </div>
+        <div class="column is-two-thirds-tablet">
+          <member-collection
+            :teamFilter="teamId"
+          />
+        </div>
+      </div>
+    </div>
 
-    <member-collection
-      :teamFilter="teamId"
-    />
   </div>
 </template>
 
