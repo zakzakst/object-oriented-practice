@@ -1,23 +1,24 @@
 {
-  "auth": {
-    "user": [
-      {
-        "uid": "ユーザーID-01",
-        "email": "",
-        "password": ""
-      }
-    ]
-  },
-  "xxx-app": {
-    "object": {
-      "ユーザーID-01": {
-        "property": ""
-      }
+  "items": [
+    {
+      "id": "",
+      "name": "",
+      "price": 0,
+      "description": "",
+      "image": ""
     }
-  },
-  "storage": {
-    "object": {
-      "image": "ストレージ内容（※実際はプロパティではない）"
+  ],
+  "transactions": [
+    {
+      "id": "",
+      "date": "",
+      "items": [
+        {
+          "id": "",
+          "num": 0
+        }
+      ],
+      "sum": 0
     }
-  }
+  ]
 }
