@@ -1,41 +1,30 @@
 TODO:
-  ☐ コンポーネント・STATEを計画する
-  ☐ リダイレクトを計画する
+  ☐ 多対多のデータベースの処理方法考える
+  ☐ adminユーザーの設定したい
+  ☐ 画像登録
+  ☐ データがなかった時のコンポーネント表示
+  ☐ 直接シングルページにアクセスした時も表示されるようにする
+  ☐ envの「APP_DIR」（firebaseのルートと分ける）
+  ☐ 関連データが削除された場合の表示とデータ処理考える
+  ☐ 最初は○件のデータを読み込む
+  ☐ 日本語・英語対応やってみたい
+  ☐ 検索・ソート機能
 
 最後に対応:
   ☐ mixinsにまとめるスクリプトあるか検討
   ☐ 最後にVScodeまわりの修正あれば「00」のほうにコピーしておく
 
+読んでおく:
+  ☐ https://www.publickey1.jp/blog/20/vs_codedevtoolsvs_codemicrosoft_edge_tools_for_vs_code.html
+  ☐ WP多言語（https://www.itti.jp/web-design/choose-from-the-best-3-multilingual-plug-ins/）
+  ☐ Nuxt多言語（https://qiita.com/itouuuuuuuuu/items/f50d44dfa849011d86ab）
+  ☐ firebaseの多対多
+
 Archive:
+  ✔ コンポーネント・STATEを計画する @done(20-10-06 09:53) @project(TODO)
+  ✔ リダイレクトを計画する @done(20-10-06 09:53) @project(TODO)
 
 Memo:
   ■■■ 参考 ■■■
 
   ■■■ 反省など ■■■
-
-
-
-Todo:
-  ☐ Item
-  ✔ Item @done(20-09-25 23:07)
-  ✘ Item @cancelled(20-09-25 23:07)
-
-Todo2:
-  ☐ Item @critical
-  ☐ Item @high
-  ☐ Item @today
-  ☐ Item @low
-
-Todo3:
-  ☐ Item @3d
-  ☐ Item @3h
-  ☐ Item @2h
-  ☐ Item @3m
-
-Archive:
-
-
-使い方参考
-https://fereria.github.io/reincarnation_tech/98_Other/VSCode/vscode_task/
-
-Todo:Open Embedded　タスクリストの作成
