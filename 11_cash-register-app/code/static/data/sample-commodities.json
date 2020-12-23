@@ -1,0 +1,25 @@
+{
+  "commodities": [
+    {
+      "id": "i001",
+      "name": "たこやき",
+      "price": 400,
+      "description": "タコが美味しい",
+      "image": "https://bulma.io/images/placeholders/96x96.png"
+    },
+    {
+      "id": "i002",
+      "name": "焼きそば",
+      "price": 500,
+      "description": "麺が美味しい",
+      "image": "https://bulma.io/images/placeholders/96x96.png"
+    },
+    {
+      "id": "i003",
+      "name": "イカ焼き",
+      "price": 300,
+      "description": "イカが美味しい",
+      "image": "https://bulma.io/images/placeholders/96x96.png"
+    }
+  ]
+}

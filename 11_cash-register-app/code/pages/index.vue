@@ -1,20 +1,21 @@
 <template>
-  <div class="container">
-    <button class="button">test</button>
-    <p class="test"><span>aaa</span></p>
+  <div>
+    <transaction-collection />
+    <!-- <commodity-collection /> -->
   </div>
 </template>
 
 <script>
-export default {}
+import TransactionCollection from '~/components/container/TransactionCollection';
+import CommodityCollection from '~/components/container/CommodityCollection';
+
+export default {
+  components: {
+    TransactionCollection,
+    CommodityCollection,
+  }
+}
 </script>
 
 <style lang="scss">
-// # TODO: TODOコメントサンプル
-// # NOTE: NOTEコメントサンプル
-.test {
-  span {
-    color: red;
-  }
-}
 </style>
